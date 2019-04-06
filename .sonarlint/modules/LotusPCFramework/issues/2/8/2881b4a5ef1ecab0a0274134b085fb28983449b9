@@ -1,0 +1,129 @@
+
+Ysquid:S1444@")Make this "public static map" field final(àüí¯HñRMINORZVULNERABILITY
+Zsquid:S1481¸",Remove this unused "xScroll" local variable.(šÂ…ÛHòRMINORZ
+CODE_SMELL
+csquid:S1481†"0Remove this unused "potionSpawn" local variable.(Ú£É½ûÿÿÿÿHóRMINORZ
+CODE_SMELL
+hsquid:S2209¹"5Change this instance-reference to a static reference.(ž¹Ñ¨ûÿÿÿÿHôRMAJORZ
+CODE_SMELL
+\squid:S1068K"*Remove this unused "player" private field.(Ç¹Ù±úÿÿÿÿHõRMAJORZ
+CODE_SMELL
+~squid:CommentedOutCodeLine·"<This block of commented-out lines of code should be removed.(ëÑÝ‡úÿÿÿÿHöRMAJORZ
+CODE_SMELL
+ysquid:CommentedOutCodeLineÃ"<This block of commented-out lines of code should be removed.(ë³øÃH÷RMAJORZ
+CODE_SMELL
+lsquid:S2696Î"6Make the enclosing method "static" or remove this set.(éí’žÿÿÿÿÿHøRCRITICALZ
+CODE_SMELL
+‡squid:S00120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(æÓ¥HùRMINORZ
+CODE_SMELL
+k
+squid:S106Œ"9Replace this use of System.out or System.err by a logger.(îÎ¯½ýÿÿÿÿHúRMAJORZ
+CODE_SMELL
+~squid:CommentedOutCodeLineƒ"<This block of commented-out lines of code should be removed.(è·­ùÿÿÿÿHûRMAJORZ
+CODE_SMELL
+ˆsquid:S3776ç"RRefactor this method to reduce its Cognitive Complexity from 16 to the 15 allowed.(ÿŸ¾ÐüÿÿÿÿHüRCRITICALZ
+CODE_SMELL
+Msquid:S3010t" Remove this assignment of "key".(ýã°ÚHýRMAJORZ
+CODE_SMELL
+~squid:CommentedOutCodeLineá"<This block of commented-out lines of code should be removed.(ê“Ã’þÿÿÿÿHþRMAJORZ
+CODE_SMELL
+^squid:S1481‚"0Remove this unused "playerSpawn" local variable.(¤ôõýHÿRMINORZ
+CODE_SMELL
+xsquid:CommentedOutCodeLine‰"<This block of commented-out lines of code should be removed.(žß¦H€RMAJORZ
+CODE_SMELL
+~squid:CommentedOutCodeLine‡"<This block of commented-out lines of code should be removed.(éØ»ÚûÿÿÿÿHRMAJORZ
+CODE_SMELL
+}squid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(„ßÿÿÿÿÿH‚RMAJORZ
+CODE_SMELL
+[squid:S1481ƒ"-Remove this unused "npcSpawn" local variable.(Çù¦ÀHƒRMINORZ
+CODE_SMELL
+ysquid:CommentedOutCodeLine¤"<This block of commented-out lines of code should be removed.(éÆ•H„RMAJORZ
+CODE_SMELL
+ysquid:CommentedOutCodeLine»"<This block of commented-out lines of code should be removed.(äå¬‡H…RMAJORZ
+CODE_SMELL
+}squid:CommentedOutCodeLineL"<This block of commented-out lines of code should be removed.(¹ÒàØýÿÿÿÿH†RMAJORZ
+CODE_SMELL
+Osquid:S3010l""Remove this assignment of "frame".(Ô’úÑH‡RMAJORZ
+CODE_SMELL
+ysquid:CommentedOutCodeLine“"<This block of commented-out lines of code should be removed.(³´—ûHˆRMAJORZ
+CODE_SMELL
+gsquid:S2696ð"6Make the enclosing method "static" or remove this set.(·ùêH‰RCRITICALZ
+CODE_SMELL
+~squid:CommentedOutCodeLine°"<This block of commented-out lines of code should be removed.(Ë×À ÿÿÿÿÿHŠRMAJORZ
+CODE_SMELL
+Ssquid:S1068b"&Remove this unused "vc" private field.(ž±îÕH‹RMAJORZ
+CODE_SMELL
+xsquid:CommentedOutCodeLinep"<This block of commented-out lines of code should be removed.(¦„¨ØHŒRMAJORZ
+CODE_SMELL
+ysquid:CommentedOutCodeLine¦"<This block of commented-out lines of code should be removed.(êƒìÀHRMAJORZ
+CODE_SMELL
+asquid:S1481„".Remove this unused "bookSpawn" local variable.(­¬ÆáÿÿÿÿÿHŽRMINORZ
+CODE_SMELL
+xsquid:CommentedOutCodeLine}"<This block of commented-out lines of code should be removed.(»¡ï˜HRMAJORZ
+CODE_SMELL
+Zsquid:S1068R"-Remove this unused "camScreen" private field.(•·úîHRMAJORZ
+CODE_SMELL
+ysquid:CommentedOutCodeLine€"<This block of commented-out lines of code should be removed.(•ÇÕôH‘RMAJORZ
+CODE_SMELL
+"squid:ClassVariableVisibilityCheckT"VMake screenSize a static final constant or non-public and provide accessors if needed.(ƒ¹›âH’RMINORZVULNERABILITY
+~squid:CommentedOutCodeLineŸ"<This block of commented-out lines of code should be removed.(È¾¼ÃüÿÿÿÿH“RMAJORZ
+CODE_SMELL
+xsquid:CommentedOutCodeLineU"<This block of commented-out lines of code should be removed.(êÆÕ¡H”RMAJORZ
+CODE_SMELL
+ysquid:CommentedOutCodeLine˜"<This block of commented-out lines of code should be removed.(Ñ¸Ç‚H•RMAJORZ
+CODE_SMELL
+`squid:S1444T"0Make this "public static screenSize" field final(ƒ¹›âH–RMINORZVULNERABILITY
+~squid:CommentedOutCodeLine•"<This block of commented-out lines of code should be removed.(àŒ«‹ýÿÿÿÿH—RMAJORZ
+CODE_SMELL
+rsquid:S2142à"FEither re-interrupt this method or rethrow the "InterruptedException".(ÇâÞáøÿÿÿÿH˜RMAJORZBUG
+msquid:UselessImportCheck"3Remove this unused import 'com.ci.game.GameScreen'.(³—Ã¨H™RMINORZ
+CODE_SMELL
+Ysquid:S1148â"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿHšRMINORZVULNERABILITY
+ysquid:CommentedOutCodeLine¾"<This block of commented-out lines of code should be removed.(ÆÌÙºH›RMAJORZ
+CODE_SMELL
+¦"squid:ClassVariableVisibilityCheck_"ZMake isRenderPaused a static final constant or non-public and provide accessors if needed.(Þù¹»ÿÿÿÿÿHœRMINORZVULNERABILITY
+~squid:CommentedOutCodeLineŽ"<This block of commented-out lines of code should be removed.(¥ŠË©øÿÿÿÿHRMAJORZ
+CODE_SMELL
+{squid:UselessImportCheck"<Remove this unused import 'com.ci.game.SplashLoadingScreen'.(ŽÉš¤øÿÿÿÿHžRMINORZ
+CODE_SMELL
+£"squid:ClassVariableVisibilityCheck\"WMake windowWidth a static final constant or non-public and provide accessors if needed.(¢¯ûùÿÿÿÿHŸRMINORZVULNERABILITY
+ysquid:CommentedOutCodeLine‘"<This block of commented-out lines of code should be removed.(Ìë¸ûH RMAJORZ
+CODE_SMELL
+_squid:S1481¹",Remove this unused "yScroll" local variable.(ÉäÓ¯ùÿÿÿÿH¡RMINORZ
+CODE_SMELL
+~squid:CommentedOutCodeLine¥"<This block of commented-out lines of code should be removed.(ñâ¿§þÿÿÿÿH¢RMAJORZ
+CODE_SMELL
+Usquid:S1172d"(Remove this unused method parameter "i".(»Ü–H£RMAJORZ
+CODE_SMELL
+psquid:UselessImportCheck"1Remove this unused import 'java.awt.DisplayMode'.(¥¹õþÿÿÿÿH¤RMINORZ
+CODE_SMELL
+rsquid:S2142É"FEither re-interrupt this method or rethrow the "InterruptedException".(ÇâÞáøÿÿÿÿH¥RMAJORZBUG
+¸%squid:RedundantThrowsDeclarationCheckd"qRemove the declaration of thrown exception 'java.io.IOException', as it cannot be thrown from constructor's body.(»Ü–H¦RMINORZ
+CODE_SMELL
+xsquid:CommentedOutCodeLineY"<This block of commented-out lines of code should be removed.(­éŠŽH§RMAJORZ
+CODE_SMELL
+–"squid:ClassVariableVisibilityCheck@"OMake map a static final constant or non-public and provide accessors if needed.(àüí¯H¨RMINORZVULNERABILITY
+xsquid:CommentedOutCodeLineO"<This block of commented-out lines of code should be removed.(æèü‡H©RMAJORZ
+CODE_SMELL
+¤"squid:ClassVariableVisibilityCheck]"XMake windowHeight a static final constant or non-public and provide accessors if needed.(èê£­øÿÿÿÿHªRMINORZVULNERABILITY
+~squid:CommentedOutCodeLine­"<This block of commented-out lines of code should be removed.(¶¿™¯ûÿÿÿÿH«RMAJORZ
+CODE_SMELL
+asquid:S1481…".Remove this unused "signSpawn" local variable.(ðŸ†ÉýÿÿÿÿH¬RMINORZ
+CODE_SMELL
+xsquid:CommentedOutCodeLinef"<This block of commented-out lines of code should be removed.(ÃÔ”îH­RMAJORZ
+CODE_SMELL
+~squid:CommentedOutCodeLineß"<This block of commented-out lines of code should be removed.(«•Ì”ûÿÿÿÿH®RMAJORZ
+CODE_SMELL
+Ysquid:S1148Ë"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿH¯RMINORZVULNERABILITY
+}squid:CommentedOutCodeLine["<This block of commented-out lines of code should be removed.(çå¨£úÿÿÿÿH°RMAJORZ
+CODE_SMELL
+~squid:CommentedOutCodeLineÏ"<This block of commented-out lines of code should be removed.(œÉªÃþÿÿÿÿH±RMAJORZ
+CODE_SMELL
+lsquid:UselessImportCheck"2Remove this unused import 'javax.imageio.ImageIO'.(‘çÔûH²RMINORZ
+CODE_SMELL
+~squid:CommentedOutCodeLineÍ"<This block of commented-out lines of code should be removed.(²ø„¤úÿÿÿÿH³RMAJORZ
+CODE_SMELL
+]squid:S1481‡"0Remove this unused "bucketSpawn" local variable.(ð˜ælH´RMINORZ
+CODE_SMELL
+^squid:S1481k",Remove this unused "devices" local variable.(¿ÛªƒÿÿÿÿÿHµRMINORZ
+CODE_SMELL

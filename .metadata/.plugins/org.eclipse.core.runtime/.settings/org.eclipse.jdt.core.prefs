@@ -1,0 +1,9 @@
+eclipse.preferences.version=1
+org.eclipse.jdt.core.builder.resourceCopyExclusionFilter=
+org.eclipse.jdt.core.codeComplete.visibilityCheck=enabled
+org.eclipse.jdt.core.compiler.codegen.targetPlatform=1.8
+org.eclipse.jdt.core.compiler.compliance=1.8
+org.eclipse.jdt.core.compiler.doc.comment.support=disabled
+org.eclipse.jdt.core.compiler.source=1.8
+org.eclipse.jdt.core.userLibrary.JOGL=<?xml version\="1.0" encoding\="UTF-8"?>\r\n<userlibrary systemlibrary\="false" version\="2">\r\n\t<archive path\="C\:/Users/Jake/Downloads/JOGL/jogl-all.jar"/>\r\n\t<archive path\="C\:/Users/Jake/Downloads/JOGL/gluegen-rt.jar"/>\r\n</userlibrary>\r\n
+org.eclipse.jdt.core.userLibrary.OGL=<?xml version\="1.0" encoding\="UTF-8"?>\r\n<userlibrary systemlibrary\="false" version\="2">\r\n\t<archive path\="C\:/Users/Jake/Downloads/JOGL/jogl-all-natives-windows-i586.jar"/>\r\n\t<archive path\="C\:/Users/Jake/Downloads/JOGL/gluegen-rt-natives-windows-i586.jar"/>\r\n</userlibrary>\r\n

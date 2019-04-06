@@ -1,0 +1,111 @@
+package com.ci.game;
+
+import java.awt.Color;
+import java.awt.Graphics;
+import java.util.List;
+import java.util.Random;
+
+import com.ci.game.GameScreen.GameState;
+import com.ci.game.entity.Player;
+import com.ci.game.graphics.Animation;
+import com.ci.game.graphics.Assets;
+import com.ci.game.graphics.Camera;
+import com.ci.game.level.Level;
+import com.ci.game.level.tile.Tile;
+import com.ci.lotusFramework.Screen;
+import com.ci.lotusFramework.Input.InputEvent;
+import com.ci.lotusFramework.implementation.LotusRenderView;
+import com.ci.lotusFramework.implementation.input.Keyboard;
+import com.ci.lotusFramework.implementation.input.Mouse;
+
+import game.ai.BanditAI;
+
+public class RPGLootScreen extends Screen
+{
+	enum GameState
+	{
+		Ready, Running, Paused, GameOver, KeepMenu, GameMapMenu, BuildingPrompt, NonPlayerTurn
+	}
+
+	public static Tile[][] tileMap;
+	
+	GameState state = GameState.Running;//Ready
+	
+	// Variable Setup
+	int xScrll, yScrll;
+	private Level level;
+	
+	private Animation anim, hanim, sorcAnimDown,sorcAnimUp,sorcAnimLeft, sorcAnimRight;
+	private Camera screen;
+
+	private BanditAI banditFaction = new BanditAI();
+	private Player player;
+
+	private Keyboard key;
+
+	private Mouse mouse;
+	Random r;	
+
+	public RPGLootScreen(LotusRenderView game) 
+	{
+		super(game);
+		// init
+	
+
+
+		
+	}
+
+	@Override
+	public void update(double deltaTime) 
+	{
+	
+		
+		List<InputEvent> inputEvents = game.getInput().getInputEvents();
+
+		
+
+	}
+
+	@Override
+	public void paint(double deltaTime) 
+	{
+		Graphics g = game.getCanvas().getBufferStrategy().getDrawGraphics();
+		
+		g.setColor(Color.WHITE);
+		g.fillRect(game.getCanvas().getWidth()/2, game.getCanvas().getHeight()/2, 40, 30);
+	}
+
+
+	
+	@Override
+	public void pause() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void resume() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void dispose() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void backButton() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void update12EverySec() {
+		// TODO Auto-generated method stub
+		
+	}
+
+}
