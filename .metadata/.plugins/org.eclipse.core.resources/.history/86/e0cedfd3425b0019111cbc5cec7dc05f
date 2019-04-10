@@ -1,0 +1,29 @@
+package com.ci.game.loot.lootsystem;
+
+import java.util.Random;
+
+public class LootSystem 
+{
+	public static boolean calcNoDrop()
+	{
+		boolean isNoDrop = false;
+		int noDropValue = 100;
+		double probSum;
+		Random r = new Random();
+		
+		int i = r.nextInt(noDropValue);
+		
+		if(i <= 70)
+		{
+			//drop
+			return true;
+		}
+		else
+		{
+			//no drop
+			return false;
+		}
+		//int newNoDrop = (int) (probSum/(1/(noDropValue/(noDropValue+probSum))-1));
+		
+	}
+}

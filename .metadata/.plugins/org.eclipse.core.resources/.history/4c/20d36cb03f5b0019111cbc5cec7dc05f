@@ -1,0 +1,10 @@
+package com.ci.game.lootsystem;
+
+public class LootSystem 
+{
+	public static boolean calcNoDrop()
+	{
+		boolean b = false;
+		return b;
+	}
+}

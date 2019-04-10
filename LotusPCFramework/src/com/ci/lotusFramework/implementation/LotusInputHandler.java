@@ -28,7 +28,6 @@ public class LotusInputHandler implements MouseHandler, KeyHandler, Input
 	@Override
 	public void mouseClicked(MouseEvent arg0) 
 	{
-		// TODO Auto-generated method stub
 		
 	}
 
@@ -95,6 +94,7 @@ public class LotusInputHandler implements MouseHandler, KeyHandler, Input
 		   synchronized(this)
 	        {     
 	            int len = mouseEvents.size();
+
 	            for( int i = 0; i < len; i++)
 	                mouseEventPool.free(mouseEvents.get(i));
 	            mouseEvents.clear();

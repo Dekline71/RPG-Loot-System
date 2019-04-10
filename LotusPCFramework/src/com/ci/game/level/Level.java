@@ -120,7 +120,7 @@ public class Level
 	
 	public Level(LotusRenderView g)
 	{
-		this.game = g;
+		this.setGame(g);
 		
 		this.height = 5440; 
 				//Assets.map.getHeight();
@@ -250,26 +250,11 @@ public class Level
 	 ********************************************************************/
 	public void update()
 	{	
-		//spawn();
-		/*for (int i = 0; i < entities.size(); i++)
+		if(game.getMouse().inBounds(getGame().getCanvas().getWidth()/2, getGame().getCanvas().getHeight()/2, 40, 30) && game.getMouse().isMouseClicked())
 		{
-			entities.get(i).update();
+			player.checkForSlainEnemy();
 		}
-		
-		for (int i = 0; i < projectiles.size(); i++)
-		{
-			projectiles.get(i).update();
-		}
-		
-		for (int i = 0; i < particles.size(); i++)
-		{
-			particles.get(i).update();
-		}
-		
-		for (int i = 0; i < npcs.size(); i++)
-		{
-			npcs.get(i).update();
-		}*/
+
 		
 		LinkedList<Particle> particles = this.particleEntities;
 		for(int i = 0; i < particles.size(); i++)
@@ -287,114 +272,11 @@ public class Level
 			}
 		}
 		
-		/*LinkedList<Enemy> enemyEntities = this.enemyArmyEntities;
-		for(int i = 0; i < enemyEntities.size(); i++)
-		{
-			Enemy e = (Enemy) enemyEntities.get(i);
-			
-			//System.out.println("X: " + e.getCenterX() +" Y: " + e.getCenterY());
-			if(e.isVisible() == true && e != null)
-			{
-				e.update();
-			}
-			else
-			{
-				enemyEntities.remove(i);
-			}
-		}
-		
-		LinkedList<ArmyUnit> plyrEntities = this.playerArmyEntities;
-		for(int i = 0; i < plyrEntities.size(); i++)
-		{
-			ArmyUnit e = (ArmyUnit) plyrEntities.get(i);
-			
-			//System.out.println("X: " + e.getCenterX() +" Y: " + e.getCenterY());
-			if(e.isVisible() == true && e != null)
-			{
-				e.update();
-			}
-			else
-			{
-				plyrEntities.remove(i);
-			}
-		}
-		
-		LinkedList<City> plyrCityEntities = this.playerCityEntities;
-		for(int i = 0; i < plyrCityEntities.size(); i++)
-		{
-			BuildingEntity e = (City) plyrCityEntities.get(i);
-			
-			//System.out.println("X: " + e.getCenterX() +" Y: " + e.getCenterY());
-			if(e.isVisible() == true && e != null)
-			{
-				e.update();
-			}
-			else
-			{
-				plyrCityEntities.remove(i);
-			}
-		}
-		
-		LinkedList<Resource> droppedResourceEntities = this.droppedResourceEntities;
-		for(int i = 0; i < droppedResourceEntities.size(); i++)
-		{
-			Resource e = (Resource) droppedResourceEntities.get(i);
-			
-			//System.out.println("X: " + e.getCenterX() +" Y: " + e.getCenterY());
-			if(e.isVisible() == true && e != null)
-			{
-				e.update();
-			}
-			else
-			{
-				droppedResourceEntities.remove(i);
-			}
-		}
-		
-		LinkedList<Projectile> projectileEntities = this.projectileEntities;
-		for(int i = 0; i < projectileEntities.size(); i++)
-		{
-			Projectile e = projectileEntities.get(i);
-			
-			//System.out.println("X: " + e.getCenterX() +" Y: " + e.getCenterY());
-			if(e.isVisible() == true && e != null)
-			{
-				e.update();
-			}
-			else
-			{
-				projectileEntities.remove(i);
-			}
-		}*/
+
 		
 	}	
 	
-	/**************************************************************************
-	 * old method to remove all entities (DOO NOT USE!!)
-	 *************************************************************************/
-	private void remove()
-	{
-		for (int i = 0; i < entities.size(); i++)
-		{
-			if(entities.get(i).isRemoved()) entities.remove(i);
-		}
-		
-		for (int i = 0; i < projectiles.size(); i++)
-		{
-			if(projectiles.get(i).isRemoved()) projectiles.remove(i);
-		}
-		
-		for (int i = 0; i < particles.size(); i++)
-		{
-			if(particles.get(i).isRemoved()) particles.remove(i);
-		}
-		
-		for (int i = 0; i < npcs.size(); i++)
-		{
-			if(npcs.get(i).isRemoved()) npcs.remove(i);
-		}
-	}
-	
+
 	public List<Projectile> getProjectiles()
 	{
 		return projectiles;
@@ -442,7 +324,7 @@ public class Level
 		int mapXoffset = xScroll % 64;
 		int mapYoffset = yScroll % 64;
 		
-		int a = getWidth() * 32 - game.getFrame().getWidth();
+		int a = getWidth() * 32 - getGame().getFrame().getWidth();
 		
 		/*for(int y = 0; y < this.height; y++)
 		{
@@ -608,12 +490,12 @@ public class Level
 	private void renderSelectedBuilding(Graphics g, Camera screen)
 	{
 		int x,y;
-		x = game.getMouse().getX() / 32;
-		y = game.getMouse().getY() / 32;
+		x = getGame().getMouse().getX() / 32;
+		y = getGame().getMouse().getY() / 32;
 		x = (x * 32) + (x%32);
 		y = (y * 32) + (y%32);		
 		
-		g.drawImage(Sprite.stoneWallV.getLotus(), ((((game.getMouse().getX() / 32) * 32 )) + ((screen.getxOffset() % 32)) + 8 ), (((game.getMouse().getY() /32 ) * 32) + (screen.getyOffset() % 32)), null);
+		g.drawImage(Sprite.stoneWallV.getLotus(), ((((getGame().getMouse().getX() / 32) * 32 )) + ((screen.getxOffset() % 32)) + 8 ), (((getGame().getMouse().getY() /32 ) * 32) + (screen.getyOffset() % 32)), null);
 	}
 	
 	/*************************************************
@@ -664,7 +546,7 @@ public class Level
 	 ************************************/
 	private void drawGUI(Graphics g) 
 	{	
-		int w = (this.game.getFrame().getWidth() - 200);
+		int w = (this.getGame().getFrame().getWidth() - 200);
 		g.drawImage(Assets.resPane, 200, 0, w, 32, null);
 		g.drawImage(Assets.resWidget, 0, -1,  null);
 		drawHUD(g);
@@ -707,7 +589,7 @@ public class Level
 		
 		if(!getPlayer().isPanelOn())
 		{
-			g.drawImage(Assets.nextTurnButton, 0, game.getCanvas().getHeight()-32, null, null);
+			g.drawImage(Assets.nextTurnButton, 0, getGame().getCanvas().getHeight()-32, null, null);
 		}
 		
 		if (this.getPlayer().isBuildingSelected() && this.getPlayer().isPanelOn() && this.getPlayer().isBuildingSelected())
@@ -893,26 +775,26 @@ public class Level
 		
 		
 		// Check for selection of first building ui item 
-		if (getPlayer().isPanelOn() && getPlayer().isBuildingSelected() && game.getMouse().inBounds( Level.UIxItem_1, Level.UIyItem_1, 32, 32) )
+		if (getPlayer().isPanelOn() && getPlayer().isBuildingSelected() && getGame().getMouse().inBounds( Level.UIxItem_1, Level.UIyItem_1, 32, 32) )
 		{
 			//this.level.setSelectedBuilding(wall);
 			//GameManager.level.getPlayer().setBuildMode(true);
 			getPlayer().setUiItem_1(true);
 		}
-		else if (getPlayer().isPanelOn() && getPlayer().isBuildingSelected() && game.getMouse().inBounds(Level.UIxItem_2, Level.UIyItem_2, 32, 32))
+		else if (getPlayer().isPanelOn() && getPlayer().isBuildingSelected() && getGame().getMouse().inBounds(Level.UIxItem_2, Level.UIyItem_2, 32, 32))
 		{	
 			//GameManager.level.getPlayer().setBuildMode(true);
 			getPlayer().setUiItem_2(true);					
 		}
 		
 		// set/check selected military entities
-		if (getPlayer().isPanelOn() && getPlayer().isMilitarySelected() && game.getMouse().inBounds( Level.UIxItem_1, Level.UIyItem_1, 32, 32) )
+		if (getPlayer().isPanelOn() && getPlayer().isMilitarySelected() && getGame().getMouse().inBounds( Level.UIxItem_1, Level.UIyItem_1, 32, 32) )
 		{
 			//this.level.setSelectedBuilding(wall);
 			getPlayer().setBuildMode(false);
 			getPlayer().setUiItem_1(true);
 		}
-		else if (getPlayer().isPanelOn() && getPlayer().isMilitarySelected() && game.getMouse().inBounds( Level.UIxItem_2, Level.UIyItem_2, 32, 32))
+		else if (getPlayer().isPanelOn() && getPlayer().isMilitarySelected() && getGame().getMouse().inBounds( Level.UIxItem_2, Level.UIyItem_2, 32, 32))
 		{	
 			getPlayer().setBuildMode(false);
 			getPlayer().setUiItem_2(true);					
@@ -1966,8 +1848,8 @@ public class Level
 			//System.out.println("X: " + x + " Y: " + y);
 			if(getPlayer().isPanelOn())
 			{
-				g.drawImage(Assets.gridHorPointer, 200, y, game.getCanvas().getWidth(), 4, null);
-				g.drawImage(Assets.gridVerPointer, x, 32, 4, game.getCanvas().getHeight()-32, null);
+				g.drawImage(Assets.gridHorPointer, 200, y, getGame().getCanvas().getWidth(), 4, null);
+				g.drawImage(Assets.gridVerPointer, x, 32, 4, getGame().getCanvas().getHeight()-32, null);
 						
 				g.drawImage(Sprite.selectedEntityPoint.getLotusImage().getImage(), x - 13, y - 13, null);	
 				//GameManager.level.getPlayerArmyEntities().get(this.selectedPlayerEntity.getPosInLink());
@@ -1997,8 +1879,8 @@ public class Level
 			}
 			else
 			{
-				g.drawImage(Assets.gridHorPointer, 0, y, game.getCanvas().getWidth(), 4, null);
-				g.drawImage(Assets.gridVerPointer, x, 32, 4, game.getCanvas().getHeight()-32, null);
+				g.drawImage(Assets.gridHorPointer, 0, y, getGame().getCanvas().getWidth(), 4, null);
+				g.drawImage(Assets.gridVerPointer, x, 32, 4, getGame().getCanvas().getHeight()-32, null);
 				g.drawImage(Sprite.selectedEntityPoint.getLotusImage().getImage(), x - 13, y - 13, null);	
 			
 			}
@@ -2215,6 +2097,14 @@ public class Level
 	public City getSelectedCity()
 	{
 		return this.selectedCity;
+	}
+
+	public LotusRenderView getGame() {
+		return game;
+	}
+
+	public void setGame(LotusRenderView game) {
+		this.game = game;
 	}
 		
 }

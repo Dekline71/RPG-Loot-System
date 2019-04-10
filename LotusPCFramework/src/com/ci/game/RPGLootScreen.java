@@ -12,6 +12,7 @@ import com.ci.game.graphics.Assets;
 import com.ci.game.graphics.Camera;
 import com.ci.game.level.Level;
 import com.ci.game.level.tile.Tile;
+import com.ci.game.loot.lootsystem.LootSystem;
 import com.ci.lotusFramework.Screen;
 import com.ci.lotusFramework.Input.InputEvent;
 import com.ci.lotusFramework.implementation.LotusRenderView;
@@ -130,9 +131,8 @@ public class RPGLootScreen extends Screen
 		for (int i = 0; i < len; i++)
 		{
 			InputEvent input = inputEvents.get(i);
-			if(input.type == InputEvent.TOUCH_DOWN)
+			if(input.type == InputEvent.TOUCH_UP)
 			{
-				System.out.println("gbkuik");
 			}
 			if(input.checkForESC())
 			{
@@ -140,10 +140,9 @@ public class RPGLootScreen extends Screen
 			}
 
 		}
-		if(game.getMouse().inBounds(game.getCanvas().getWidth()/2, game.getCanvas().getHeight()/2, 40, 30) && game.getMouse().isMouseClicked())
-		{
-			System.out.println("Loot Box Clicked");
-		}
+		level.update();
+
+
 		game.getMouse().update();
 		game.getKeyboard().update();
 	}

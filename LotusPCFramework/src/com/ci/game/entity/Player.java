@@ -6,6 +6,7 @@ import com.ci.game.entity.projectile.Projectile;
 import com.ci.game.entity.projectile.WizardProjectile;
 import com.ci.game.graphics.Camera;
 import com.ci.game.graphics.Sprite;
+import com.ci.game.loot.lootsystem.LootSystem;
 import com.ci.lotusFramework.implementation.input.Keyboard;
 import com.ci.lotusFramework.implementation.input.Mouse;
 
@@ -24,6 +25,7 @@ public class Player extends Entity
 	private boolean isPanelOn;
 	
 	private Keyboard input;
+	private Mouse mouse;
 	private Sprite sprite;
 	public int xScroll, yScroll;
 	
@@ -56,34 +58,60 @@ public class Player extends Entity
 
 	public void update()
 	{
-		if(input.checkForESC())
-		{
-			System.exit(0);
-		}
+		//if(input.checkForESC())
+		//{
+		//	System.exit(0);
+		//}
+		checkForSlainEnemy();
+
 		
-		if (fireRate > 0){fireRate--;}
-		int xPos = 0, yPos = 0;// detect player position/movement
-		if (anim < 7500){anim++;}
+		//if (fireRate > 0){fireRate--;}
+		//int xPos = 0, yPos = 0;// detect player position/movement
+		//if (anim < 7500){anim++;}
 	//	if (input.up){ yPos--;}
 	//	if (input.down){ yPos++;}
 	//	if (input.left){ xPos--;}
 	//	if (input.right){ xPos++;}
 	
 		
-		if (xPos != 0 || yPos != 0)
-		{
-			//move(xPos, yPos);
-			walking = true;
-		}
-		else
-		{
-			walking = false;
-		}
-		clear();
-		updateShooting();
+		//if (xPos != 0 || yPos != 0)
+		//{
+			  //move(xPos, yPos);
+			//walking = true;
+		//}
+		//else
+		//{
+			//walking = false;
+		//}
+
+		
 		
 	}
 	
+	public void checkForSlainEnemy() 
+	{
+		// check for slain enemy
+		
+		boolean lootDrop;
+		System.out.println("Loot Box Clicked");
+		//int mLvl = generateSlainMonster();
+			
+		lootDrop = LootSystem.calcNoDrop();
+		//System.out.println(lootDrop);
+		
+		if(lootDrop) // if there is a drop
+		{
+			System.out.println("$$ Loot Drop!!");
+			LootSystem.dropLoot(1);
+			
+		}
+		else
+		{
+			
+		}
+			
+	}
+
 	private void clear()
 	{
 		for(int i = 0; i < level.getProjectiles().size(); i++)
