@@ -1,0 +1,147 @@
+package com.ci.game.loot.lootsystem;
+
+import java.util.Random;
+import java.awt.image.BufferedImage;
+
+import com.ci.game.graphics.Assets;
+import com.ci.game.loot.Item;
+
+public class LootSystem 
+{
+	//LootClass lc;
+	public static Item[] lootclass1 = new Item[3];
+	public static Item[] lootclass2;
+
+	
+	public static Item shortSword;
+	public static Item dullSword;
+	public static Item leatherHelmet;
+	public static Item chosenLoot;
+	
+	
+	public LootSystem()
+	{
+		initItems();
+	}
+	
+	public static void initItems() 
+	{
+		shortSword = new Item(Assets.shortSword, 0, "Short Sword", 1.0f, "1H-S", 15, 1, 25, 'c');
+		leatherHelmet = new Item(Assets.leatherHelmet, 0, "Leather Helmet", 15, 15, 1, 50, 'c');
+		dullSword = new Item(Assets.shortSword, 0, "Dull Sword", 0.5f, "1H-S", 12, 1, 100, 'c');
+
+		
+		lootclass1[0] = shortSword;
+		lootclass1[1] = leatherHelmet;
+		lootclass1[2] = dullSword;
+	}
+
+	/**********************************
+	 * Calculates the chance of no loot 
+	 * being dropped.
+	 * @return boolean
+	 **********************************/
+	public static boolean calcNoDrop()
+	{
+		boolean isNoDrop = false;
+		int noDropValue = 100;
+		double probSum;
+		Random r = new Random();
+		
+		int i = r.nextInt(noDropValue);
+		
+		if(i <= 69) // 69% chance?
+		{
+			//drop
+			return true;
+		}
+		else
+		{
+			//no drop
+			return false;
+		}
+		//int newNoDrop = (int) (probSum/(1/(noDropValue/(noDropValue+probSum))-1));
+		
+	}
+
+	public static void dropLoot(int enemyLevel) 
+	{
+				
+		int gold = 0;
+		gold = calcGold(enemyLevel);
+		System.out.println(gold + " Gold Dropped.");
+		
+		// //Pick LootClass from list based on monster level
+		//extractLC(enemyLevel);
+		
+		Random r = new Random();
+		if(enemyLevel <= 3)
+		{
+			int probSum=0;
+			int amtItems = lootclass1.length;
+			
+			for(int i = 0; i < amtItems; i++)
+			{
+				probSum += lootclass1[i].getChanceToDrop();
+
+			}
+			int roll = r.nextInt(lootclass1[amtItems-1].getChanceToDrop());
+			System.out.println("rolled: " + roll);
+			for(int i = 0; i < amtItems; i++)
+			{
+				if(i == 0 && roll <= lootclass1[i].getChanceToDrop())
+				{
+					chosenLoot = lootclass1[i];
+					System.out.println(lootclass1[i].getName());
+					if(lootclass1[i].getItemType() == Item.ItemType.Weapon)
+					{
+						System.out.println("Damage: " + lootclass1[i].getDamage() + " dps");
+					}
+
+				}
+				else if(i != 0 && roll > lootclass1[i-1].getChanceToDrop() && roll <= lootclass1[i].getChanceToDrop())
+				{
+					chosenLoot = lootclass1[i];
+					System.out.println(lootclass1[i].getName());
+					if(lootclass1[i].getItemType() == Item.ItemType.Weapon)
+					{
+						System.out.println("Damage: " + lootclass1[i].getDamage() + " dps");
+					}
+					else if(lootclass1[i].getItemType() == Item.ItemType.Armor)
+					{
+						System.out.println("Armor: " + lootclass1[i].getArmor());
+
+					}
+
+				}				
+			}			
+		}
+		else if(enemyLevel >= 6)
+		{
+			int i = r.nextInt(1);
+			switch(i)
+			{
+			case 0:
+				// use loot class 0
+				break;
+			case 1:
+			 // use loot class 1
+				break;
+			}
+		}
+	}
+
+	private static void extractLC(int enemyLevel) 
+	{
+
+		
+	}
+
+	private static int calcGold(int enemyLevel) 
+	{
+		Random r = new Random();
+		int rValue = r.nextInt(5);
+		int totalGold = ((rValue + enemyLevel)/(enemyLevel*2));
+		return totalGold;
+	}
+}

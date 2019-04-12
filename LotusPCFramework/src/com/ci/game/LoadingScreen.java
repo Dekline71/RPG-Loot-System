@@ -9,6 +9,7 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 
 import com.ci.game.graphics.Assets;
+import com.ci.game.loot.lootsystem.LootSystem;
 import com.ci.lotusFramework.Screen;
 import com.ci.lotusFramework.implementation.LotusRenderView;
 
@@ -25,7 +26,7 @@ public class LoadingScreen extends Screen
 	@Override
 	public void update(double deltaTime)
 	{
-
+		LootSystem.initItems();
 		System.out.println("Loading!!!");
 
 		BufferedImage img;
@@ -35,6 +36,13 @@ public class LoadingScreen extends Screen
 		{
 			img = ImageIO.read(this.getClass().getResource("/textures/misc/splash2.jpg"));
 			Assets.splash = img;
+			
+			img = ImageIO.read(this.getClass().getResource("/items/weapons/shortsword-ico.png"));
+			Assets.shortSword = img;		
+			
+			img = ImageIO.read(this.getClass().getResource("/items/armor/leatherhelmet-ico.png"));
+			Assets.leatherHelmet = img;	
+			
 
 		} catch (IOException e) 
 		{

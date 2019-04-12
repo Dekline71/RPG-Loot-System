@@ -13,8 +13,8 @@ import javax.swing.JFrame;
 public class LotusFrame extends JFrame
 {
 	// Set the resolution and make accessible to entire game   
-    public static final int FRAMEWIDTH = 1000;//1000
-    public static final int FRAMEHEIGHT = 794;//794
+    public static final int FRAMEWIDTH = 800;//1000
+    public static final int FRAMEHEIGHT = 600;//794
 	 
     // List of supported resolutions
     public static Dimension modes[] = 

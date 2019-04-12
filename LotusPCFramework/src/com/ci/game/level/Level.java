@@ -39,6 +39,7 @@ import com.ci.game.graphics.Assets;
 import com.ci.game.graphics.Camera;
 import com.ci.game.graphics.Sprite;
 import com.ci.game.level.tile.Tile;
+import com.ci.game.loot.lootsystem.LootSystem;
 import com.ci.lotusFramework.implementation.LotusRenderView;
 
 /**************************************************************************
@@ -133,7 +134,7 @@ public class Level
 		//Assets.lvlmap.getRGB(0, 0, this.width, this.height, null, 0, 60);// convert pixel data into tiles[]
 		
 		this.buildingTileMap = new TileMap(this.width, this.height);// create new tilemap for 32x32
-		
+				
 		/*PixelGrabber pg = new PixelGrabber(Assets.lvlmap, 0, 0, 60, 48, false);
 	
 		try 

@@ -1,0 +1,5 @@
+package com.ci.game.loot;
+
+public class Item {
+
+}

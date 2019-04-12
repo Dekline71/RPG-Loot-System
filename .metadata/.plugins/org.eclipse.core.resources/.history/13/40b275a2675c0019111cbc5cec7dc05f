@@ -1,0 +1,63 @@
+package com.ci.game.loot;
+
+import java.awt.image.BufferedImage;
+
+public class Item 
+{
+	enum ItemType {Armor, Weapon}
+	
+	enum ItemAttribute {SpellDamage, WeaponDamage, 
+		FireResistence, Strength, Health}
+	
+	// Armor attributes
+	private int armor;
+	
+	// Shared item attributes
+	private int durability;
+	private int qLvl; // required player lvl for equip
+	private String name; // name of item
+	private ItemType itemType; // type of item
+	//ItemAttribute attribute1Type;
+	//ItemAttribute attribute2Type;
+	private int lootClass; // loot class index;
+	private int chanceToDrop; // chance to drop in lootclass 
+	private char rarity; // rarity of item
+		
+	// Weapon attributes
+	private float damage;
+	private String weaponType;
+
+	// Armor item constructor
+	public Item (BufferedImage img, int lootClass, String itemName, int defense, int durability, int qLvl, int odds, char rarity)
+	{
+		this.lootClass = lootClass;
+		name = itemName;
+		this.armor = defense;
+		this.durability = durability;
+		this.qLvl = qLvl;
+		itemType = ItemType.Armor;
+		
+	}
+	
+	//Weapon Item Constructor
+	public Item (BufferedImage img, int lootClass, String itemName, float damage, String wType, int durability, int qLvl, int odds, char rarity)
+	{
+		this.lootClass = lootClass;
+		name = itemName;
+		this.damage = damage;
+		weaponType = wType;
+		this.durability = durability;
+		this.qLvl = qLvl;
+		itemType = ItemType.Weapon;
+	}
+
+	public int getChanceToDrop() {
+		return chanceToDrop;
+	}
+
+	public void setChanceToDrop(int chanceToDrop) {
+		this.chanceToDrop = chanceToDrop;
+	}
+	
+
+}

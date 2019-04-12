@@ -63,6 +63,7 @@ public class RPGLootScreen extends Screen
 		this.player.setPrevTurn(1);
 		this.player.setTotalTurns(1);
 		
+		
 	}
 
 	@Override

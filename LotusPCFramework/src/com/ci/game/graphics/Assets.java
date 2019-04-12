@@ -15,6 +15,20 @@ public class Assets
 	public static BufferedImage lvlmap;
 	public static BufferedImage test;
 	
+	/*********************************************
+	 * Items
+	 *********************************************/
+	
+	//Armor
+	public static BufferedImage leatherHelmet;
+
+	
+	//Weapon
+	public static BufferedImage shortSword;
+	public static BufferedImage dullSword;
+
+
+	
 	//ui
 	public static BufferedImage resPane;
 	public static BufferedImage resPanel;
