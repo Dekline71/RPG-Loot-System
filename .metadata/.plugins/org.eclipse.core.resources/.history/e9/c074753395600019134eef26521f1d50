@@ -377,8 +377,6 @@ public class Level
 					{
 
 						g.drawImage(LootSystem.getTempLoot().get(i).getImage(), 15, 15, null);
-						
-						// Display Item name in color in relation to rarity 
 						switch(LootSystem.getTempLoot().get(i).getRarity())
 						{
 						case 'c':
@@ -405,7 +403,6 @@ public class Level
 					{
 						g.drawImage(LootSystem.getTempLoot().get(i).getImage(), 15, 30 * ( ii), null);
 						
-						// Display Item name in color in relation to rarity 
 						switch(LootSystem.getTempLoot().get(i).getRarity())
 						{
 						case 'c':
@@ -433,9 +430,8 @@ public class Level
 				{
 					if(i == 0)
 					{
-						g.drawImage(LootSystem.getTempLoot().get(i).getImage(), 15, 15, null);
 
-						// Display Item name in color in relation to rarity 
+						g.drawImage(LootSystem.getTempLoot().get(i).getImage(), 15, 15, null);
 						switch(LootSystem.getTempLoot().get(i).getRarity())
 						{
 						case 'c':
@@ -461,8 +457,7 @@ public class Level
 					else
 					{
 						g.drawImage(LootSystem.getTempLoot().get(i).getImage(), 15, 30 * ( ii), null);
-
-						// Display Item name in color in relation to rarity 
+						
 						switch(LootSystem.getTempLoot().get(i).getRarity())
 						{
 						case 'c':

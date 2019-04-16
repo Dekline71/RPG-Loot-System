@@ -106,36 +106,27 @@ public class LootSystem
 		//extractLC(enemyLevel);
 		
 		Random r = new Random();
-		if(enemyLevel <= 3) // Pick LootClass 1
+		if(enemyLevel <= 3)
 		{
+			int probSum=0;
 			int amtItems = lootclass1.length;
 			
-			/*for(int i = 0; i < amtItems; i++)
-			{
-				probSum += lootclass1[i].getChanceToDrop();
-			}*/
-			
-			// get random value between, 0 to the weight 
-			// of the last Item in the loot class
-			int roll = r.nextInt(lootclass1[amtItems-1].getChanceToDrop());
-			System.out.println("rolled: " + roll);
-			
-			/***************************************************
-			 * Loop for the length of Items in said loot class.
-			 * For each loop starting from [0], compare roll value
-			 * to each previous Items weighted range. 
-			 *****************************************************/
 			for(int i = 0; i < amtItems; i++)
 			{
-				// Check first items Drop value & compare to roll value
-				if(i == 0 && roll <= lootclass1[i].getChanceToDrop()) 
+				probSum += lootclass1[i].getChanceToDrop();
+
+			}
+			int roll = r.nextInt(lootclass1[amtItems-1].getChanceToDrop());
+			System.out.println("rolled: " + roll);
+			for(int i = 0; i < amtItems; i++)
+			{
+				if(i == 0 && roll <= lootclass1[i].getChanceToDrop())
 				{
 					chosenLoot = lootclass1[i];
 					getTempLoot().add(lootclass1[i]);
 					showItemToConsole(i);
 
 				}
-				// Compare previous Items Drop value to current
 				else if(i != 0 && roll > lootclass1[i-1].getChanceToDrop() && roll <= lootclass1[i].getChanceToDrop())
 				{
 					chosenLoot = lootclass1[i];
@@ -145,7 +136,7 @@ public class LootSystem
 				}				
 			}			
 		}
-		else if(enemyLevel >= 6) // Pick Loot class 2
+		else if(enemyLevel >= 6)
 		{
 			int i = r.nextInt(1);
 			switch(i)
