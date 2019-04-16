@@ -47,6 +47,7 @@ public class Item
 		this.qLvl = qLvl;
 		this.chanceToDrop = odds;
 		setItemType(ItemType.Armor);
+		setRarity(rarity);
 		
 	}
 	
@@ -62,6 +63,8 @@ public class Item
 		this.qLvl = qLvl;
 		this.chanceToDrop = odds;
 		setItemType(ItemType.Weapon);
+		setRarity(rarity);
+
 	}
 	
 	// Gold/Currency Item Constructor
@@ -141,6 +144,14 @@ public class Item
 
 	public void setImage(BufferedImage image) {
 		this.image = image;
+	}
+
+	public char getRarity() {
+		return rarity;
+	}
+
+	public void setRarity(char rarity) {
+		this.rarity = rarity;
 	}
 	
 

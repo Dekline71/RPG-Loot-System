@@ -80,7 +80,7 @@ public class LootSystem
 		
 		int i = r.nextInt(noDropValue);
 		
-		if(i <= 69) // 69% drop rate
+		if(i <= 59) // 59% drop rate
 		{
 			//drop
 			return true;
@@ -93,7 +93,12 @@ public class LootSystem
 		//int newNoDrop = (int) (probSum/(1/(noDropValue/(noDropValue+probSum))-1));
 		
 	}
-
+	
+	/*****************************************
+	 * Drop Item based on enemy level.
+	 * <p>
+	 * int enemyLevel: level of enemy
+	 ******************************************/
 	public static void dropLoot(int enemyLevel) 
 	{
 
@@ -145,7 +150,12 @@ public class LootSystem
 			}
 		}
 	}
-
+	
+	/********************************************
+	 * Display Contents of Loot Drop to Console
+	 * <p>
+	 * int i: lootclass1[] index value
+	 *******************************************/
 	private static void showItemToConsole(int i) 
 	{
 		System.out.println("\n" + lootclass1[i].getName());

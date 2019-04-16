@@ -61,6 +61,9 @@ public class LoadingScreen extends Screen
 			img = ImageIO.read(this.getClass().getResource("/items/gold-coin-ico.png"));
 			Assets.goldCoin = img;
 			
+			img = ImageIO.read(this.getClass().getResource("/items/loot-chest-ico.png"));
+			Assets.lootChest = img;
+			
 			
 
 		} catch (IOException e) 

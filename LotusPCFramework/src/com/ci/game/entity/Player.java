@@ -94,24 +94,26 @@ public class Player extends Entity
 	
 	public void checkForSlainEnemy() 
 	{
-		// check for slain enemy
-		
 		boolean lootDrop, goldDrop;
 		LootSystem.tempLoot.clear();
 
-		System.out.println("Loot Box Clicked");
 		int mLvl;
 		//mLvl = generateSlainMonster(); //** TBD **
 		mLvl = 1; // Testing level 1 enemy/monster
 		
+		System.out.println("Loot Box Clicked");
+		
+		// Calc Chance of Armor/Weapon Item for current Drop.
+		// Return true if items will drop.
 		lootDrop = LootSystem.calcNoDrop();
-		//System.out.println(lootDrop);
+		
+		// Calc chance of receiving Gold for current Drop.
+		// Return true if gold drops.
 		goldDrop = LootSystem.calcGoldDrop();
-
+		
 		if(goldDrop)
 		{
 			setLootDropped(true);
-			System.out.println("$$ Loot Drop!!");
 			int gold = LootSystem.calcGold(mLvl); // calc gold based mLvl
 			if(gold > 0)
 			{
@@ -119,15 +121,22 @@ public class Player extends Entity
 				LootSystem.getTempLoot().add(new Item(g.getGold()));
 			}
 			System.out.println(gold + " Gold Dropped.");
+			level.getGame().getAudio().loot.play();
+		}
+		else
+		{
+			System.out.println("No Gold Dropped.");
+
 		}
 		
 		if(lootDrop) // if there is a drop
 		{
 			LootSystem.dropLoot(mLvl);
+			System.out.println("Loot Drop!!");
 		}
 		else
 		{
-			
+			System.out.println("No Loot Drop! :(");
 		}
 			
 	}

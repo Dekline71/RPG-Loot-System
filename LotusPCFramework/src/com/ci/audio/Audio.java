@@ -5,7 +5,7 @@ import java.applet.AudioClip;
 
 public class Audio 
 {
-	public static final Audio hit = new Audio("hit.wav");
+	public static final Audio loot = new Audio("select.wav");
 	private AudioClip clip;
 	
 	public Audio(String name)

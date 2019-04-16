@@ -5,3 +5,5 @@
 1555442902792	Rename field 'dullSword'
 1555444455104	Rename field 'img'
 1555444466499	Encapsulate field 'image'
+1555449252159	Encapsulate field 'rarity'
+1555450051765	Copy file

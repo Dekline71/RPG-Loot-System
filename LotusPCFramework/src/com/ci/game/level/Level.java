@@ -140,47 +140,7 @@ public class Level
 		
 		this.buildingTileMap = new TileMap(this.width, this.height);// create new tilemap for 32x32
 				
-		/*PixelGrabber pg = new PixelGrabber(Assets.lvlmap, 0, 0, 60, 48, false);
-	
-		try 
-		{
-			pg.grabPixels();
-			tiles = (int[])pg.getPixels();
-		} 
-		catch (InterruptedException e) 
-		{
-			e.printStackTrace();
-		}*/
-	
-		
-		/*int x1, y1;
-		x1 = 0;
-		y1 = 26;
-		System.out.println( Integer.toHexString(tiles[x1 + (y1)]));
-		if("ff267f00".equals(Integer.toHexString(tiles[x1 + (y1 * this.width)])))
-		{
-			//System.out.println(Integer.toHexString(getTile(x,y).getSprite().getPixels()[1]));
-			System.out.println(Integer.toHexString(tiles[1]));
 
-			System.out.println("Poo: " );
-			//System.out.println(Tile.grassTile_1.getSprite().getSIZE());
-		}
-		else
-		{
-			//System.out.println(Integer.toHexString(getTile(x1,y1).getSprite().getPixels()[1]));
-
-		}*/
-		
-		/*// 32x32 fill building tile map
-		for(int y = 0; y < this.height; y++)
-		{
-			for(int x = 0; x < this.width; x++)
-			{
-				tilesInt[x + (y * this.width)] = getTile(x, y);
-				
-				this.buildingTileMap.getTileGrid()[x][y] = new Tile(x, y);
-			}
-		}		*/
 		
 		// 64x64 px army movement tilemap init
 		this.aMMW = this.getWidth() / 64; // Army Movement Map Width	
@@ -205,32 +165,7 @@ public class Level
 
 	protected void generateLevel() 
 	{
-		//City city = new City("Edinburough", Sprite.city_5, 54, 84);// should separate building entity list
-		//City b = new City("Wessex", Sprite.town_1, 62, 88);// should separate building entity list
-		
-		//City c = new City("London", Sprite.town_1, 72, 92);// should separate building entity list
-		//City d = new City("Essex", Sprite.city_4, 65, 95);// should separate building entity list
-		//City e = new City("London", Sprite.city_1, 72, 82);// should separate building entity list
-
-		
-		//this.barrackX = barrack.getCenter32X();
-		//this.barrackY = barrack.getCenter32Y();
-		//getPlayerCityEntities().add(city);
-		//getPlayerCityEntities().add(b);
-		//getPlayerCityEntities().add(c);
-		//getPlayerCityEntities().add(d);
-		//getPlayerCityEntities().add(e);
-
-		
-		//ArmyUnit sorc = new ArmyUnit(1, 1, this);
-		
-		//getPlayerArmyEntities().add(sorc);
-	
-		// building tiles not init yet
-	//	this.getBuildingTileMap().getTileGrid()[13][12].setSolid(true); 
-	//	this.getBuildingTileMap().getTileGrid()[12][12].setSolid(true); 
-	//	this.getBuildingTileMap().getTileGrid()[13][13].setSolid(true);
-	//	this.getBuildingTileMap().getTileGrid()[12][13].setSolid(true); 
+ 
 	}
 	
 	
@@ -256,7 +191,7 @@ public class Level
 	 ********************************************************************/
 	public void update()
 	{	
-		if(game.getMouse().inBounds(getGame().getCanvas().getWidth()/2, getGame().getCanvas().getHeight()/2, 40, 30) && game.getMouse().isMouseClicked())
+		if(game.getMouse().inBounds(getGame().getCanvas().getWidth()/2 + 60, getGame().getCanvas().getHeight()/2 + 60, 60, 60) && game.getMouse().isMouseClicked())
 		{
 			player.checkForSlainEnemy();
 		}
@@ -332,41 +267,6 @@ public class Level
 		
 		int a = getWidth() * 32 - getGame().getFrame().getWidth();
 		
-		/*for(int y = 0; y < this.height; y++)
-		{
-			for (int x = 0; x < this.width; x++)
-			{																													
-				if( (((mapX + x) + 6) + ((mapY + y) * this.getWidth()) < tilesInt.length && this.getPlayer().isPanelOn() && xScroll >= a))// if greater than total index
-				{
-				    g.drawImage(tilesInt[((mapX + x) + 6) + ((mapY + y) * this.getWidth())].sprite.getLotus(), ((x * 32) - mapXoffset) + 200 , (( y * 32 ) - mapYoffset) + 32, null, null);// draw tile to main canvas bitmap to be displayed in frame
-				}
-				else if( ((mapX + x) + ((mapY + y) * this.getWidth()) < tilesInt.length && this.getPlayer().isPanelOn()))// if greater than total index
-				{
-					//Tile t = tilesInt[(mapX + x) + ((mapY + y) * this.getWidth())];
-				    g.drawImage(tilesInt[(mapX + x) + ((mapY + y) * this.getWidth())].sprite.getLotus(), ((x * 32 ) - mapXoffset) + 200, (( y * 32 ) - mapYoffset) + 32, null, null);// draw tile to main canvas bitmap to be displayed in frame
-				 //tileMap.getTileGrid()[mapX + x][mapY + y];
-					//g.drawRect( (GameManager.level.getPlayer().getCenterX() * 32) - mapXoffset, ((GameManager.level.getPlayer().getCenterY()) * 32 ) - mapYoffset, 16, 16, Color.RED);
-				    
-				}
-				// draw & get tile
-				else if( ((mapX + x) + ((mapY + y) * this.width) < tilesInt.length))// if greater than total index
-				{
-					//System.out.println("fgsdghwsgaefa");
-				
-					if((mapX + x) + ((mapY + y) * this.width) < tilesInt.length && !this.getPlayer().isPanelOn())
-					{	
-						// g.drawImage(tilesInt[0].getImage(), ((x * 32 ) - mapXoffset), (( y * 32 ) - mapYoffset) + 32, null, null);// draw tile to main canvas bitmap to be displayed in frame
-						g.drawImage(Assets.map, ((x * 32 ) - mapXoffset), (( y * 32 ) - mapYoffset) + 32, null, null);// draw tile to main canvas bitmap to be displayed in frame
-					}			
-				}				
-			}
-		}*/
-		
-		/*if(this.getPlayer().isPanelOn() || this.getPlayer().isTownManagerMode())
-		{
-			g.drawImage(Assets.map, 0 - xScroll + 200, 32 - yScroll, null);
-		}
-		else*/
 		
 		g.drawImage(Assets.map, (screen.getxOffset() % 64) - screen.getxOffset(), (screen.getyOffset() % 64+32) - yScroll, null);		
 	//System.out.println("Total Memory:" + Runtime.getRuntime().totalMemory());
@@ -475,13 +375,55 @@ public class Level
 				{
 					if(i == 0)
 					{
+
 						g.drawImage(LootSystem.getTempLoot().get(i).getImage(), 15, 15, null);
-						g.drawString(LootSystem.getTempLoot().get(i).getName(), 78, 58);					
+						switch(LootSystem.getTempLoot().get(i).getRarity())
+						{
+						case 'c':
+							g.setColor(Color.WHITE);
+							g.drawString(LootSystem.getTempLoot().get(i).getName(), 78, 58);
+							break;
+						case 'u':
+							g.setColor(Color.GREEN);
+							g.drawString(LootSystem.getTempLoot().get(i).getName(), 78, 58);
+							break;
+						case 'r':
+							g.setColor(Color.BLUE);
+							g.drawString(LootSystem.getTempLoot().get(i).getName(), 78, 58);
+							break;
+						case 'l':
+							g.setColor(Color.ORANGE);
+							g.drawString(LootSystem.getTempLoot().get(i).getName(), 78, 58);
+							break;
+						default:
+							break;							
+						}
 					}
 					else
 					{
 						g.drawImage(LootSystem.getTempLoot().get(i).getImage(), 15, 30 * ( ii), null);
-						g.drawString(LootSystem.getTempLoot().get(i).getName(), 78, 36 * (ii)  );
+						
+						switch(LootSystem.getTempLoot().get(i).getRarity())
+						{
+						case 'c':
+							g.setColor(Color.WHITE);
+							g.drawString(LootSystem.getTempLoot().get(i).getName(), 78, 36 * (ii));
+							break;
+						case 'u':
+							g.setColor(Color.GREEN);
+							g.drawString(LootSystem.getTempLoot().get(i).getName(), 78, 36 * (ii));
+							break;
+						case 'r':
+							g.setColor(Color.BLUE);
+							g.drawString(LootSystem.getTempLoot().get(i).getName(), 78, 36 * (ii));
+							break;
+						case 'l':
+							g.setColor(Color.ORANGE);
+							g.drawString(LootSystem.getTempLoot().get(i).getName(), 78, 36 * (ii));
+							break;
+						default:
+							break;							
+						}
 					}
 				}
 				else if(LootSystem.getTempLoot().get(i).getItemType() == Item.ItemType.Armor)
@@ -490,20 +432,56 @@ public class Level
 					{
 
 						g.drawImage(LootSystem.getTempLoot().get(i).getImage(), 15, 15, null);
-						g.drawString(LootSystem.getTempLoot().get(i).getName(), 78, 58);
+						switch(LootSystem.getTempLoot().get(i).getRarity())
+						{
+						case 'c':
+							g.setColor(Color.WHITE);
+							g.drawString(LootSystem.getTempLoot().get(i).getName(), 78, 58);
+							break;
+						case 'u':
+							g.setColor(Color.GREEN);
+							g.drawString(LootSystem.getTempLoot().get(i).getName(), 78, 58);
+							break;
+						case 'r':
+							g.setColor(Color.BLUE);
+							g.drawString(LootSystem.getTempLoot().get(i).getName(), 78, 58);
+							break;
+						case 'l':
+							g.setColor(Color.ORANGE);
+							g.drawString(LootSystem.getTempLoot().get(i).getName(), 78, 58);
+							break;
+						default:
+							break;							
+						}
 					}
 					else
 					{
 						g.drawImage(LootSystem.getTempLoot().get(i).getImage(), 15, 30 * ( ii), null);
 						
-						// Draw String color based on rarity
-						// White = Base/Common
-						// Green = Unique
-						// Blue = Rare
-						// Orange = Legendary
-						//if(LootSystem.chosenLoot.getRarity)
-						g.drawString(LootSystem.getTempLoot().get(i).getName(), 78, 36 * (ii));
+						switch(LootSystem.getTempLoot().get(i).getRarity())
+						{
+						case 'c':
+							g.setColor(Color.WHITE);
+							g.drawString(LootSystem.getTempLoot().get(i).getName(), 78, 36 * (ii));
+							break;
+						case 'u':
+							g.setColor(Color.GREEN);
+							g.drawString(LootSystem.getTempLoot().get(i).getName(), 78, 36 * (ii));
+							break;
+						case 'r':
+							g.setColor(Color.BLUE);
+							g.drawString(LootSystem.getTempLoot().get(i).getName(), 78, 36 * (ii));
+							break;
+						case 'l':
+							g.setColor(Color.ORANGE);
+							g.drawString(LootSystem.getTempLoot().get(i).getName(), 78, 36 * (ii));
+							break;
+						default:
+							break;							
+						}
 					}
+					
+
 					
 				}
 				ii++;
@@ -1089,61 +1067,6 @@ public class Level
 		npcs.add(n);
 	}
 	
-	public void movePlayerEntity() 
-	{
-		int x = selectedEntity.getCenter64X();
-		int y = selectedEntity.getCenter64Y();
-		boolean isSpaceOccupied = false;
-		for(int i = 0; i < enemyArmyEntities.size(); i++)
-		{
-			if(enemyArmyEntities.get(i).getCenter64X() == x && enemyArmyEntities.get(i).getCenter64Y() == y)
-			{
-				isSpaceOccupied = true;
-				break;
-			}
-			else
-			{
-				isSpaceOccupied = false;
-			}
-		}
-		
-		if(!isSpaceOccupied)
-		{
-			for(int i = 0; i < playerArmyEntities.size(); i++)
-			{
-				if(playerArmyEntities.get(i).getCenter64X() == x && playerArmyEntities.get(i).getCenter64Y() == y)
-				{
-					isSpaceOccupied = true;
-					break;
-				}
-				else
-				{
-					isSpaceOccupied = false;
-				}
-		
-			}
-		}
-		
-		if(playerArmyEntities.get(this.selectedEntity.getPosInLink()).doesEntityHaveGridMoves() && !isSpaceOccupied)
-		{
-			this.setIsTouchingDown(false);
-			this.setIsEntitySelected(false);
-			this.setPlayerEntitySelected(false);
-			playerArmyEntities.get(this.selectedEntity.getPosInLink()).setTarget(this.selectedEntity);
-			playerArmyEntities.get(this.selectedEntity.getPosInLink()).setisTargetFound(false);
-			playerArmyEntities.get(this.selectedEntity.getPosInLink()).setSearched(false);
-			this.selectedEntity = null;
-		}
-		else
-		{
-			this.setIsTouchingDown(false);
-			this.setIsEntitySelected(false);
-			this.setPlayerEntitySelected(false);
-			this.selectedEntity = null;
-
-		}
-	}
-	
 	public void moveEnemyEntity() 
 	{	
 			this.setIsTouchingDown(false);
@@ -1152,239 +1075,6 @@ public class Level
 			//this.selectedEntity = null;	
 	}
 	
-	/***************************************
-	 *  Trigger combat between two entities
-	 ***************************************/
-	public void combatEntityPointer()
-	{
-		if(isPlayerEntitySelected() && isTouchingDown() && this.selectedEntity != null )
-		{
-			for(int i = 0; i < enemyArmyEntities.size(); i++)
-			{
-				if(enemyArmyEntities.get(i).getCenter64X() == this.selectedEntity.getCenter64X() && enemyArmyEntities.get(i).getCenter64Y() == this.selectedEntity.getCenter64Y())
-				{
-					for(int j = 0; j < playerArmyEntities.size(); j++)
-					{
-						if(this.playerArmyEntities.get(j).getCenter64X() == this.selectedPlayerEntity.getCenter64X() && playerArmyEntities.get(j).getCenter64Y() == this.selectedPlayerEntity.getCenter64Y())
-						{
-							System.out.println("combat pointer triggered");
-						
-							// Trigger combat between the two entities
-							engagePlayerCombat(i, j);
-							//break;
-						}
-					}
-				
-				}
-			}
-		}
-	}
-	
-	/***********************************************************************
-	*  Set game to combatMode, and set each entity to attack each other
-	*  enemyIndex: index of enemy in list
-	*  plyrIndex: index of plyr in list
-	***********************************************************************/
-	public void engagePlayerCombat(int enemyIndex, int plyrIndex )
-	{
-		//playerArmyEntities.get(plyrIndex).setTarget(new Entity(playerArmyEntities.get(plyrIndex).getTarget().getCenter64X(), playerArmyEntities.get(plyrIndex).getTarget().getCenter64X(), enemyIndex));
-		playerArmyEntities.get(plyrIndex).setTarget(enemyArmyEntities.get(enemyIndex));
-		enemyArmyEntities.get(enemyIndex).setTarget(playerArmyEntities.get(plyrIndex));
-		
-		//playerArmyEntities.get(plyrIndex).getTarget().setPosInLink(enemyIndex);
-		if(playerArmyEntities.get(plyrIndex).getGridMoves() > 0 && !isProcessingNextTurn)
-		{
-			// Check if attacking entity unit type is melee and is adjacent
-			if(playerArmyEntities.get(plyrIndex).getUnitType() == UnitType.Melee)
-			{
-				//Check right
-				if(playerArmyEntities.get(plyrIndex).getCenter64X()+1 == enemyArmyEntities.get(enemyIndex).getCenter64X() && playerArmyEntities.get(plyrIndex).getCenter64Y() == enemyArmyEntities.get(enemyIndex).getCenter64Y())
-				{
-					System.out.println("combat");
-
-					getPlayer().setCombatMode(true);
-
-					enemyArmyEntities.get(enemyIndex).setCombatMode(true);
-					enemyArmyEntities.get(enemyIndex).attack(plyrIndex);
-					
-					playerArmyEntities.get(plyrIndex).setCombatMode(true);
-					playerArmyEntities.get(plyrIndex).playerInitiatedAttack(enemyIndex);
-				}
-				// Check left
-				else if(playerArmyEntities.get(plyrIndex).getCenter64X()-1 == enemyArmyEntities.get(enemyIndex).getCenter64X() && playerArmyEntities.get(plyrIndex).getCenter64Y() == enemyArmyEntities.get(enemyIndex).getCenter64Y())
-				{
-					System.out.println("combat");
-
-					getPlayer().setCombatMode(true);
-
-					enemyArmyEntities.get(enemyIndex).setCombatMode(true);
-					enemyArmyEntities.get(enemyIndex).attack(plyrIndex);
-					
-					playerArmyEntities.get(plyrIndex).setCombatMode(true);
-					playerArmyEntities.get(plyrIndex).playerInitiatedAttack(enemyIndex);
-				}
-				// Check above
-				else if (playerArmyEntities.get(plyrIndex).getCenter64Y()-1 == enemyArmyEntities.get(enemyIndex).getCenter64Y() && playerArmyEntities.get(plyrIndex).getCenter64X() == enemyArmyEntities.get(enemyIndex).getCenter64X())
-				{
-					System.out.println("combat");
-				
-					getPlayer().setCombatMode(true);
-
-					enemyArmyEntities.get(enemyIndex).setCombatMode(true);
-					enemyArmyEntities.get(enemyIndex).attack(plyrIndex);
-
-					playerArmyEntities.get(plyrIndex).setCombatMode(true);
-					playerArmyEntities.get(plyrIndex).playerInitiatedAttack(enemyIndex);
-				}
-				// Check below
-				else if (playerArmyEntities.get(plyrIndex).getCenter64Y()+1 == enemyArmyEntities.get(enemyIndex).getCenter64Y() && playerArmyEntities.get(plyrIndex).getCenter64X() == enemyArmyEntities.get(enemyIndex).getCenter64X())
-				{
-					System.out.println("combat");
-
-					getPlayer().setCombatMode(true);
-
-					enemyArmyEntities.get(enemyIndex).setCombatMode(true);
-					enemyArmyEntities.get(enemyIndex).attack(plyrIndex);
-
-					playerArmyEntities.get(plyrIndex).setCombatMode(true);
-					playerArmyEntities.get(plyrIndex).playerInitiatedAttack(enemyIndex);
-				}
-			}
-			else if(playerArmyEntities.get(plyrIndex).getUnitType() == UnitType.Ranged)
-			{
-				//Check right
-				if(playerArmyEntities.get(plyrIndex).getCenter64X()+1 == enemyArmyEntities.get(enemyIndex).getCenter64X() && playerArmyEntities.get(plyrIndex).getCenter64Y() == enemyArmyEntities.get(enemyIndex).getCenter64Y())
-				{
-					System.out.println("combat");
-
-					getPlayer().setCombatMode(true);
-
-					//enemyArmyEntities.get(enemyIndex).setCombatMode(true);
-					//enemyArmyEntities.get(enemyIndex).attack(plyrIndex);
-					
-					playerArmyEntities.get(plyrIndex).setCombatMode(true);
-					playerArmyEntities.get(plyrIndex).playerInitiatedAttack(enemyIndex);
-				}
-				// Check left
-				else if(playerArmyEntities.get(plyrIndex).getCenter64X()-1 == enemyArmyEntities.get(enemyIndex).getCenter64X() && playerArmyEntities.get(plyrIndex).getCenter64Y() == enemyArmyEntities.get(enemyIndex).getCenter64Y())
-				{
-					System.out.println("combat");
-
-					getPlayer().setCombatMode(true);
-
-					//enemyArmyEntities.get(enemyIndex).setCombatMode(true);
-					//enemyArmyEntities.get(enemyIndex).attack(plyrIndex);
-					
-					playerArmyEntities.get(plyrIndex).setCombatMode(true);
-					playerArmyEntities.get(plyrIndex).playerInitiatedAttack(enemyIndex);
-				}
-				// Check above
-				else if (playerArmyEntities.get(plyrIndex).getCenter64Y()-1 == enemyArmyEntities.get(enemyIndex).getCenter64Y() && playerArmyEntities.get(plyrIndex).getCenter64X() == enemyArmyEntities.get(enemyIndex).getCenter64X())
-				{
-					System.out.println("combat");
-				
-					getPlayer().setCombatMode(true);
-
-					//enemyArmyEntities.get(enemyIndex).setCombatMode(true);
-					//enemyArmyEntities.get(enemyIndex).attack(plyrIndex);
-
-					playerArmyEntities.get(plyrIndex).setCombatMode(true);
-					playerArmyEntities.get(plyrIndex).playerInitiatedAttack(enemyIndex);
-				}
-				// Check below
-				else if (playerArmyEntities.get(plyrIndex).getCenter64Y()+1 == enemyArmyEntities.get(enemyIndex).getCenter64Y() && playerArmyEntities.get(plyrIndex).getCenter64X() == enemyArmyEntities.get(enemyIndex).getCenter64X())
-				{
-					System.out.println("combat");
-
-					getPlayer().setCombatMode(true);
-
-					//enemyArmyEntities.get(enemyIndex).setCombatMode(true);
-					//enemyArmyEntities.get(enemyIndex).attack(plyrIndex);
-
-					playerArmyEntities.get(plyrIndex).setCombatMode(true);
-					playerArmyEntities.get(plyrIndex).playerInitiatedAttack(enemyIndex);
-				}
-				//Check right + 2
-				else if(playerArmyEntities.get(plyrIndex).getCenter64X()+2 == enemyArmyEntities.get(enemyIndex).getCenter64X() && playerArmyEntities.get(plyrIndex).getCenter64Y() == enemyArmyEntities.get(enemyIndex).getCenter64Y())
-				{
-					System.out.println("combat");
-
-					getPlayer().setCombatMode(true);
-
-					//enemyArmyEntities.get(enemyIndex).setCombatMode(true);
-					//enemyArmyEntities.get(enemyIndex).attack(plyrIndex);
-					
-					playerArmyEntities.get(plyrIndex).setCombatMode(true);
-					playerArmyEntities.get(plyrIndex).playerInitiatedAttack(enemyIndex);
-				}
-				// Check left + 2
-				else if(playerArmyEntities.get(plyrIndex).getCenter64X()-2 == enemyArmyEntities.get(enemyIndex).getCenter64X() && playerArmyEntities.get(plyrIndex).getCenter64Y() == enemyArmyEntities.get(enemyIndex).getCenter64Y())
-				{
-					System.out.println("combat");
-
-					getPlayer().setCombatMode(true);
-
-					//enemyArmyEntities.get(enemyIndex).setCombatMode(true);
-					//enemyArmyEntities.get(enemyIndex).attack(plyrIndex);
-					
-					playerArmyEntities.get(plyrIndex).setCombatMode(true);
-					playerArmyEntities.get(plyrIndex).playerInitiatedAttack(enemyIndex);
-				}
-				// Check above + 2
-				else if (playerArmyEntities.get(plyrIndex).getCenter64Y()-2 == enemyArmyEntities.get(enemyIndex).getCenter64Y() && playerArmyEntities.get(plyrIndex).getCenter64X() == enemyArmyEntities.get(enemyIndex).getCenter64X())
-				{
-					System.out.println("combat");
-				
-					getPlayer().setCombatMode(true);
-
-					//enemyArmyEntities.get(enemyIndex).setCombatMode(true);
-					//enemyArmyEntities.get(enemyIndex).attack(plyrIndex);
-
-					playerArmyEntities.get(plyrIndex).setCombatMode(true);
-					playerArmyEntities.get(plyrIndex).playerInitiatedAttack(enemyIndex);
-				}
-				// Check below + 2
-				else if (playerArmyEntities.get(plyrIndex).getCenter64Y()+2 == enemyArmyEntities.get(enemyIndex).getCenter64Y() && playerArmyEntities.get(plyrIndex).getCenter64X() == enemyArmyEntities.get(enemyIndex).getCenter64X())
-				{
-					System.out.println("combat");
-
-					getPlayer().setCombatMode(true);
-
-					//enemyArmyEntities.get(enemyIndex).setCombatMode(true);
-					//enemyArmyEntities.get(enemyIndex).attack(plyrIndex);
-
-					playerArmyEntities.get(plyrIndex).setCombatMode(true);
-					playerArmyEntities.get(plyrIndex).playerInitiatedAttack(enemyIndex);
-				}
-			}
-		}		
-	}
-
-	/************************************************************
-	 * Have enemy engage combat
-	 * enemyIndex: integer position in enemyArmies link
-	 * plyrIndex: integer position in plyrArmies link
-	 ************************************************************/
-	public void engageEnemyCombat(int enemyIndex, int plyrIndex )
-	{
-		if(playerArmyEntities.size() > 0)
-		{
-			if(enemyArmyEntities.get(enemyIndex).getGridMoves() > 0)
-			{
-				// Check if attacking entity unit type is melee and is adjacent
-				if(enemyArmyEntities.get(enemyIndex).getUnitType() == UnitType.Melee)
-				{						
-					//System.out.println("ATTACK");
-					playerArmyEntities.get(plyrIndex).attack(enemyIndex);
-					playerArmyEntities.get(plyrIndex).setCombatMode(true);
-					enemyArmyEntities.get(enemyIndex).enemyInitiatedAttack(plyrIndex);
-					enemyArmyEntities.get(enemyIndex).setCombatMode(true);
-					getPlayer().setCombatMode(true);			
-			
-				}
-			}
-		}	
-	}
 	
 	/**********************************************
 	 * Return number sprite based on passed integer

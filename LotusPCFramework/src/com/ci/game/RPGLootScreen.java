@@ -94,7 +94,7 @@ public class RPGLootScreen extends Screen
 		Graphics g = game.getCanvas().getBufferStrategy().getDrawGraphics();
 		
 		g.setColor(Color.WHITE);
-		g.fillRect(game.getCanvas().getWidth()/2, game.getCanvas().getHeight()/2, 40, 30);
+		g.drawImage(Assets.lootChest, 40 + (game.getCanvas().getWidth() / 2), 30 + (game.getCanvas().getHeight() / 2), null);
 		xScrll = screen.getxOffset();
 		yScrll = screen.getyOffset();
 		
