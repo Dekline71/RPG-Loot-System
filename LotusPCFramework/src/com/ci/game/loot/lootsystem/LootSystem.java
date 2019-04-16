@@ -1,22 +1,33 @@
 package com.ci.game.loot.lootsystem;
 
+import java.util.LinkedList;
 import java.util.Random;
 import java.awt.image.BufferedImage;
 
+import com.ci.game.entity.armyunit.ArmyUnit;
 import com.ci.game.graphics.Assets;
 import com.ci.game.loot.Item;
 
 public class LootSystem 
 {
 	//LootClass lc;
-	public static Item[] lootclass1 = new Item[3];
+	public static Item[] lootclass1 = new Item[10];
 	public static Item[] lootclass2;
+	
+	public static LinkedList<Item> tempLoot = new LinkedList<Item>();
 
 	
 	public static Item shortSword;
-	public static Item dullSword;
+	public static Item birchStaff;
 	public static Item leatherHelmet;
+	public static Item wolfSkinArmor;
 	public static Item chosenLoot;
+	public static Item dagger;
+	public static Item greaves;
+	public static Item soldiersShortSword;
+	public static Item helmOfOdin;
+	public static Item baneStaff;
+	public static Item howlfangsFur;
 	
 	
 	public LootSystem()
@@ -26,14 +37,30 @@ public class LootSystem
 	
 	public static void initItems() 
 	{
-		shortSword = new Item(Assets.shortSword, 0, "Short Sword", 1.0f, "1H-S", 15, 1, 25, 'c');
-		leatherHelmet = new Item(Assets.leatherHelmet, 0, "Leather Helmet", 15, 15, 1, 50, 'c');
-		dullSword = new Item(Assets.shortSword, 0, "Dull Sword", 0.5f, "1H-S", 12, 1, 100, 'c');
+		shortSword = new Item(Assets.shortSword, 0, "Short Sword", 1.0f, "1H-S", 15, 1, 2, 'c');
+		leatherHelmet = new Item(Assets.leatherHelmet, 0, "Leather Helmet", 15, 15, 1, 3, 'c');
+		birchStaff = new Item(Assets.shortSword, 0, "Birch Staff", 0.5f, "1H-S", 12, 1, 5, 'c');
+		wolfSkinArmor = new Item(Assets.shortSword, 0, "Wolf Skin Armor", 35, 35, 3, 6, 'c');
+		dagger = new Item(Assets.shortSword, 0, "Dagger", 0.5f, "1H-S", 12, 1, 7, 'c');
+		greaves = new Item(Assets.leatherHelmet, 0, "Greaves", 40, 40, 3, 8, 'c');
+		soldiersShortSword = new Item(Assets.shortSword, 0, "Short Sword", 1.0f, "1H-S", 15, 1, 10, 'u');
+		helmOfOdin = new Item(Assets.leatherHelmet, 0, "Helm of Odin", 58, 58, 3, 11, 'r');
+		baneStaff = new Item(Assets.shortSword, 0, "Bane Staff", 1.0f, "1H-S", 15, 1, 13, 'r');
+		howlfangsFur = new Item(Assets.leatherHelmet, 0, "Howlfangs Fur", 58, 58, 3, 15, 'r');
+
 
 		
 		lootclass1[0] = shortSword;
 		lootclass1[1] = leatherHelmet;
-		lootclass1[2] = dullSword;
+		lootclass1[2] = birchStaff;
+		lootclass1[3] = wolfSkinArmor;
+		lootclass1[4] = dagger;
+		lootclass1[5] = greaves;
+		lootclass1[6] = soldiersShortSword;
+		lootclass1[7] = helmOfOdin;
+		lootclass1[8] = baneStaff;
+		lootclass1[9] = howlfangsFur;
+
 	}
 
 	/**********************************
@@ -50,7 +77,7 @@ public class LootSystem
 		
 		int i = r.nextInt(noDropValue);
 		
-		if(i <= 69) // 69% chance?
+		if(i <= 69) // 69% drop rate
 		{
 			//drop
 			return true;
@@ -66,11 +93,7 @@ public class LootSystem
 
 	public static void dropLoot(int enemyLevel) 
 	{
-				
-		int gold = 0;
-		gold = calcGold(enemyLevel);
-		System.out.println(gold + " Gold Dropped.");
-		
+
 		// //Pick LootClass from list based on monster level
 		//extractLC(enemyLevel);
 		
@@ -92,12 +115,14 @@ public class LootSystem
 				if(i == 0 && roll <= lootclass1[i].getChanceToDrop())
 				{
 					chosenLoot = lootclass1[i];
+					getTempLoot().add(lootclass1[i]);
 					showItemToConsole(i);
 
 				}
 				else if(i != 0 && roll > lootclass1[i-1].getChanceToDrop() && roll <= lootclass1[i].getChanceToDrop())
 				{
 					chosenLoot = lootclass1[i];
+					getTempLoot().add(lootclass1[i]);
 					showItemToConsole(i);
 
 				}				
@@ -140,11 +165,40 @@ public class LootSystem
 		
 	}
 
-	private static int calcGold(int enemyLevel) 
+	public static int calcGold(int enemyLevel) 
 	{
 		Random r = new Random();
 		int rValue = r.nextInt(5);
 		int totalGold = ((rValue + enemyLevel)/(enemyLevel*2));
 		return totalGold;
+	}
+
+	public static LinkedList<Item> getTempLoot() {
+		return tempLoot;
+	}
+
+	public void setTempLoot(LinkedList<Item> tempLoot) {
+		this.tempLoot = tempLoot;
+	}
+
+	public static boolean calcGoldDrop() 
+	{
+		boolean isNoDrop = false;
+		int noDropValue = 100;
+		double probSum;
+		Random r = new Random();
+		
+		int i = r.nextInt(noDropValue);
+		
+		if(i <= 76) // 76% drop rate
+		{
+			//drop
+			return true;
+		}
+		else
+		{
+			//no drop
+			return false;
+		}
 	}
 }

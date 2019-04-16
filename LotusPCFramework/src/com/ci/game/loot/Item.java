@@ -4,7 +4,7 @@ import java.awt.image.BufferedImage;
 
 public class Item 
 {
-	public enum ItemType {Armor, Weapon}
+	public enum ItemType {Armor, Weapon, Gold}
 	
 	enum ItemAttribute {SpellDamage, WeaponDamage, 
 		FireResistence, Strength, Health}
@@ -26,6 +26,8 @@ public class Item
 	// Weapon attributes
 	private float damage;
 	private String weaponType;
+
+	private int gold; // Gold Currency Item
 
 	public Item()
 	{
@@ -57,7 +59,14 @@ public class Item
 		this.chanceToDrop = odds;
 		setItemType(ItemType.Weapon);
 	}
-
+	
+	// Gold/Currency Item Constructor
+	public Item (int amount)
+	{
+		setGold(amount);
+		setItemType(ItemType.Gold);
+	}
+	
 	public int getChanceToDrop() {
 		return chanceToDrop;
 	}
@@ -112,6 +121,14 @@ public class Item
 
 	public void setDurability(int durability) {
 		this.durability = durability;
+	}
+
+	public int getGold() {
+		return gold;
+	}
+
+	public void setGold(int gold) {
+		this.gold = gold;
 	}
 	
 

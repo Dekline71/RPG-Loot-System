@@ -6,6 +6,7 @@ import com.ci.game.entity.projectile.Projectile;
 import com.ci.game.entity.projectile.WizardProjectile;
 import com.ci.game.graphics.Camera;
 import com.ci.game.graphics.Sprite;
+import com.ci.game.loot.Item;
 import com.ci.game.loot.lootsystem.LootSystem;
 import com.ci.lotusFramework.implementation.input.Keyboard;
 import com.ci.lotusFramework.implementation.input.Mouse;
@@ -45,6 +46,9 @@ public class Player extends Entity
 	private int totalTurns;
 	private int prevTurn;
 	private String tribe;
+	
+	private boolean isLootDropped = false;
+
 	
 	public Player(int x, int y) 
 	{
@@ -92,18 +96,33 @@ public class Player extends Entity
 	{
 		// check for slain enemy
 		
-		boolean lootDrop;
+		boolean lootDrop, goldDrop;
 		System.out.println("Loot Box Clicked");
-		//int mLvl = generateSlainMonster();
-			
+		LootSystem.tempLoot.clear();
+		int mLvl;
+		//mLvl = generateSlainMonster(); //** TBD **
+		mLvl = 1; // Testing level 1 enemy/monster
+		
 		lootDrop = LootSystem.calcNoDrop();
 		//System.out.println(lootDrop);
+		goldDrop = LootSystem.calcGoldDrop();
+
+		if(goldDrop)
+		{
+			setLootDropped(true);
+			System.out.println("$$ Loot Drop!!");
+			int gold = LootSystem.calcGold(mLvl); // calc gold based mLvl
+			if(gold > 0)
+			{
+				Item g = new Item(gold);
+				LootSystem.getTempLoot().add(new Item(g.getGold()));
+			}
+			System.out.println(gold + " Gold Dropped.");
+		}
 		
 		if(lootDrop) // if there is a drop
 		{
-			System.out.println("$$ Loot Drop!!");
-			LootSystem.dropLoot(1);
-			
+			LootSystem.dropLoot(mLvl);
 		}
 		else
 		{
@@ -376,5 +395,13 @@ public class Player extends Entity
 	public String getTribe()
 	{
 		return this.tribe;
+	}
+
+	public boolean isLootDropped() {
+		return isLootDropped;
+	}
+
+	public void setLootDropped(boolean isLootDropped) {
+		this.isLootDropped = isLootDropped;
 	}
 }

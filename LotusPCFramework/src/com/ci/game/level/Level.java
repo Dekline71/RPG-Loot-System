@@ -39,6 +39,8 @@ import com.ci.game.graphics.Assets;
 import com.ci.game.graphics.Camera;
 import com.ci.game.graphics.Sprite;
 import com.ci.game.level.tile.Tile;
+import com.ci.game.loot.Item;
+import com.ci.game.loot.Item.ItemType;
 import com.ci.game.loot.lootsystem.LootSystem;
 import com.ci.lotusFramework.implementation.LotusRenderView;
 
@@ -98,6 +100,9 @@ public class Level
 	private boolean isProcessingNextTurn = false;
 	private boolean selectedDir;
 	private City selectedCity;
+	
+	
+	
 	
 	private int [][] contestedMapTerritoryDataLayer = new int [95][85];
 	
@@ -367,16 +372,7 @@ public class Level
 	//System.out.println("Total Memory:" + Runtime.getRuntime().totalMemory());
 	//System.out.println("Max Memory:" + Runtime.getRuntime().maxMemory());
 
-		drawContestedFactionTerritory(g, screen);
-
-		renderCombatGrid(g);
-
-		renderBuildGrid(g);
-		
-		if(getPlayer().isBuildingSelected() && getPlayer().isUiItem_1())
-		{
-			renderSelectedBuilding(g, screen);
-		}
+		drawLootPanel(g);
 		
 		// render Entities
 		/*for(int i = 0; i < playerCityEntities.size(); i++)
@@ -456,6 +452,66 @@ public class Level
 		//drawGUI(g);		
 	}	
 	
+	private void drawLootPanel(Graphics g) 
+	{
+		if(this.getPlayer().isLootDropped() == true)
+		{
+			g.drawImage(Assets.resPanel, 10, 10, null);
+			
+			// Get total items including gold in temp loot drop
+			int ii = 2;
+			for(int i = 0; i < LootSystem.tempLoot.size(); i++)
+			{
+
+				if(LootSystem.getTempLoot().get(i).getItemType() == ItemType.Gold)
+				{
+					if(LootSystem.getTempLoot().get(i).getGold() > 0)
+					{			
+						g.drawImage(Sprite.gold.getLotus(), 15, 15, null);
+						g.drawString(LootSystem.getTempLoot().get(i).getGold() + " Gold", 78, 58);
+					}
+				}
+				else if(LootSystem.getTempLoot().get(i).getItemType() == Item.ItemType.Weapon)
+				{
+					if(i == 0)
+					{
+						g.drawImage(Assets.shortSword, 15, 15, null);
+						g.drawString(LootSystem.getTempLoot().get(i).getName(), 78, 58);					
+					}
+					else
+					{
+						g.drawImage(Assets.shortSword, 15, 30 * ( ii), null);
+						g.drawString(LootSystem.getTempLoot().get(i).getName(), 78, 36 * (ii)  );
+					}
+				}
+				else if(LootSystem.getTempLoot().get(i).getItemType() == Item.ItemType.Armor)
+				{
+					if(i == 0)
+					{
+
+						g.drawImage(Assets.leatherHelmet, 15, 15, null);
+						g.drawString(LootSystem.getTempLoot().get(i).getName(), 78, 58);
+					}
+					else
+					{
+						g.drawImage(Assets.leatherHelmet, 15, 30 * ( ii), null);
+						
+						// Draw String color based on rarity
+						// White = Base/Common
+						// Green = Unique
+						// Blue = Rare
+						// Orange = Legendary
+						//if(LootSystem.chosenLoot.getRarity)
+						g.drawString(LootSystem.getTempLoot().get(i).getName(), 78, 36 * (ii));
+					}
+					
+				}
+				ii++;
+			}
+		}	
+		
+	}
+
 	/***************************************************************************************
 	 * Graphics g: canvas for camera to render on
 	 * Camera screen: instance of camera
@@ -2107,5 +2163,6 @@ public class Level
 	public void setGame(LotusRenderView game) {
 		this.game = game;
 	}
+
 		
 }
