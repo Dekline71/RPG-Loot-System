@@ -130,8 +130,6 @@ public class Assets
 	public static BufferedImage greaves;
 	public static BufferedImage leatherChest;
 	public static BufferedImage goldCoin;
-	public static BufferedImage leatherBelt;
-	public static BufferedImage staff;
 
 
 	public static Image getFish() 

@@ -9,8 +9,6 @@ public class Item
 	enum ItemAttribute {SpellDamage, WeaponDamage, 
 		FireResistence, Strength, Health}
 	
-	private BufferedImage image;
-	
 	// Armor attributes
 	private int armor;
 	
@@ -39,7 +37,6 @@ public class Item
 	// Armor item constructor
 	public Item (BufferedImage img, int lootClass, String itemName, int defense, int durability, int qLvl, int odds, char rarity)
 	{
-		this.setImage(img);
 		this.lootClass = lootClass;
 		setName(itemName);
 		this.setArmor(defense);
@@ -53,7 +50,6 @@ public class Item
 	//Weapon Item Constructor
 	public Item (BufferedImage img, int lootClass, String itemName, float damage, String wType, int durability, int qLvl, int odds, char rarity)
 	{
-		this.setImage(img);
 		this.lootClass = lootClass;
 		setName(itemName);
 		this.setDamage(damage);
@@ -133,14 +129,6 @@ public class Item
 
 	public void setGold(int gold) {
 		this.gold = gold;
-	}
-
-	public BufferedImage getImage() {
-		return image;
-	}
-
-	public void setImage(BufferedImage image) {
-		this.image = image;
 	}
 	
 

@@ -467,7 +467,7 @@ public class Level
 				{
 					if(LootSystem.getTempLoot().get(i).getGold() > 0)
 					{			
-						g.drawImage(Assets.goldCoin, 15, 15, null);
+						g.drawImage(Sprite.gold.getLotus(), 15, 15, null);
 						g.drawString(LootSystem.getTempLoot().get(i).getGold() + " Gold", 78, 58);
 					}
 				}
@@ -475,12 +475,12 @@ public class Level
 				{
 					if(i == 0)
 					{
-						g.drawImage(LootSystem.getTempLoot().get(i).getImage(), 15, 15, null);
+						g.drawImage(Assets.shortSword, 15, 15, null);
 						g.drawString(LootSystem.getTempLoot().get(i).getName(), 78, 58);					
 					}
 					else
 					{
-						g.drawImage(LootSystem.getTempLoot().get(i).getImage(), 15, 30 * ( ii), null);
+						g.drawImage(Assets.shortSword, 15, 30 * ( ii), null);
 						g.drawString(LootSystem.getTempLoot().get(i).getName(), 78, 36 * (ii)  );
 					}
 				}
@@ -489,12 +489,12 @@ public class Level
 					if(i == 0)
 					{
 
-						g.drawImage(LootSystem.getTempLoot().get(i).getImage(), 15, 15, null);
+						g.drawImage(Assets.leatherHelmet, 15, 15, null);
 						g.drawString(LootSystem.getTempLoot().get(i).getName(), 78, 58);
 					}
 					else
 					{
-						g.drawImage(LootSystem.getTempLoot().get(i).getImage(), 15, 30 * ( ii), null);
+						g.drawImage(Assets.leatherHelmet, 15, 30 * ( ii), null);
 						
 						// Draw String color based on rarity
 						// White = Base/Common

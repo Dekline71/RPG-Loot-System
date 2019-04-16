@@ -3,3 +3,5 @@
 1555420754992	Encapsulate field 'gold'
 1555421922654	Encapsulate field 'tempLoot'
 1555442902792	Rename field 'dullSword'
+1555444455104	Rename field 'img'
+1555444466499	Encapsulate field 'image'

@@ -97,9 +97,8 @@ public class Player extends Entity
 		// check for slain enemy
 		
 		boolean lootDrop, goldDrop;
-		LootSystem.tempLoot.clear();
-
 		System.out.println("Loot Box Clicked");
+		LootSystem.tempLoot.clear();
 		int mLvl;
 		//mLvl = generateSlainMonster(); //** TBD **
 		mLvl = 1; // Testing level 1 enemy/monster

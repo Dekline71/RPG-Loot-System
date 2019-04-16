@@ -41,10 +41,7 @@ public class LoadingScreen extends Screen
 			Assets.splash = img;
 			
 			img = ImageIO.read(this.getClass().getResource("/items/weapons/shortsword-ico.png"));
-			Assets.shortSword = img;	
-			
-			img = ImageIO.read(this.getClass().getResource("/items/weapons/staff-ico.png"));
-			Assets.staff = img;	
+			Assets.shortSword = img;		
 			
 			img = ImageIO.read(this.getClass().getResource("/items/armor/leatherhelmet-ico.png"));
 			Assets.leatherHelmet = img;	
@@ -55,7 +52,7 @@ public class LoadingScreen extends Screen
 			img = ImageIO.read(this.getClass().getResource("/items/armor/leather-chest-ico.png"));
 			Assets.leatherChest = img;
 			
-			img = ImageIO.read(this.getClass().getResource("/items/armor/leather-belt-ico.png"));
+			img = ImageIO.read(this.getClass().getResource("/items/gold-coin-ico.png"));
 			Assets.leatherBelt = img;
 			
 			img = ImageIO.read(this.getClass().getResource("/items/gold-coin-ico.png"));
