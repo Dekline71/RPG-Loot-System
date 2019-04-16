@@ -331,11 +331,11 @@ public class GameScreen extends Screen
 			
 			System.out.println("UP");
 			
-			//level.combatEntityPointer();
+			level.combatEntityPointer();
 			
 			if(level.isPlayerEntitySelected() && level.isEntitySelected() && !level.checkNotTouchingPlyrEntity())
 			{
-				//level.movePlayerEntity();
+				level.movePlayerEntity();
 			}
 			else if (level.isEnemyEntitySelected() && level.isEntitySelected() && !level.checkNotTouchingEnemEntity())
 			{
@@ -1045,7 +1045,7 @@ public class GameScreen extends Screen
 			if(!level.getPlayer().isCombatMode())
 			{
 				CombatEvent e = level.getCombatEvents().poll();
-				//level.engageEnemyCombat(e.getAttackerIndex(), e.getAttackeeIndex());
+				level.engageEnemyCombat(e.getAttackerIndex(), e.getAttackeeIndex());
 				level.getPlayer().setCombatMode(false);
 			}
 		}
