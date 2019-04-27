@@ -4,7 +4,7 @@ import java.awt.image.BufferedImage;
 
 public class Item 
 {
-	public enum ItemType {Armor, Weapon, Gold}
+	public enum ItemType {Armor, Weapon, Gold, Monster}
 	
 	enum ItemAttribute {SpellDamage, WeaponDamage, 
 		FireResistence, Strength, Health}
@@ -66,6 +66,18 @@ public class Item
 		setRarity(rarity);
 
 	}
+        
+        //Monster Item Constructor
+        public Item (BufferedImage img, int lootClass, String itemName, int qLvl, int odds, char rarity)
+        {
+            this.setImage(img);
+            this.lootClass = lootClass;
+            setName(itemName);
+            this.qLvl = qLvl;
+            this.chanceToDrop = odds;
+            setItemType(ItemType.Monster);
+            setRarity(rarity);
+        }
 	
 	// Gold/Currency Item Constructor
 	public Item (int amount)

@@ -133,7 +133,7 @@ public class Assets
 	public static BufferedImage leatherBelt;
 	public static BufferedImage staff;
 	public static BufferedImage lootChest;
-
+        public static BufferedImage nothing;
 
 	public static Image getFish() 
 	{

@@ -71,7 +71,7 @@ public class LotusRenderView implements Runnable, Game
 	private static int width;
 	private static int height;// (168.75)
 	private static int scale = 1;
-	private static String title = "Art of War: AT.THE.GATES.OF.MIDDLE.EARTH.";
+	private static String title = "LOOTBOX TEST PLATFORM";
 	private Thread thread;
 	private Level level;
 	private Player player;
@@ -268,7 +268,7 @@ public class LotusRenderView implements Runnable, Game
 				if(System.currentTimeMillis() - timer > 1000)//if the time since we ran this method took more than a sec(everything inside runs once per sec)
 				{
 					timer += 1000;
-					System.out.println(updates + " ups, " + frames + " fps");
+					//System.out.println(updates + " ups, " + frames + " fps");
 					if(!this.isRenderPaused )
 					{
 						frame.setTitle(title + "  |  " + updates + " Updates, " + "Fps: " + frames);

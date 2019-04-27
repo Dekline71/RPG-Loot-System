@@ -105,7 +105,7 @@ public class Mouse implements MouseListener, MouseMotionListener
 		mouseX = e.getX();
 		mouseY = e.getY();
 		this.setMouseDragged(true);
-		System.out.println("Mouse dragged.");
+		//System.out.println("Mouse dragged.");
 		this.isMouseDown = true;
 	}
 
@@ -119,19 +119,19 @@ public class Mouse implements MouseListener, MouseMotionListener
 
 	public void mouseEntered(MouseEvent e) 
 	{
-		System.out.println("Mouse entered.");
+		//System.out.println("Mouse entered.");
 	}
 
 	public void mouseExited(MouseEvent e) 
 	{
-		System.out.println("Mouse exited.");
+		//System.out.println("Mouse exited.");
 	}
 
 	// When mouse is held down
 	public void mousePressed(MouseEvent e) 
 	{
 		mouseB = e.getButton();
-		System.out.println("Mouse pressed.");
+		//System.out.println("Mouse pressed.");
 		this.isMouseDown = true;
 		this.isMouseClicked = false;		
 		this.isMouseUp = false;
@@ -141,7 +141,7 @@ public class Mouse implements MouseListener, MouseMotionListener
 	public void mouseReleased(MouseEvent e) 
 	{
 		mouseB = -1;//reset button
-		System.out.println("Mouse released.");
+		//System.out.println("Mouse released.");
 		this.isMouseUp = true;
 		//this.isMouseDown = false;
 		this.isMouseClicked = false;	
@@ -155,7 +155,7 @@ public class Mouse implements MouseListener, MouseMotionListener
 		mouseY = e.getY();
 		
 		mouseB = e.getModifiers();
-		System.out.println("Mouse clicked.");
+		//System.out.println("Mouse clicked.");
 
 		this.isMouseClicked = true;
 		this.isMouseDown = false;

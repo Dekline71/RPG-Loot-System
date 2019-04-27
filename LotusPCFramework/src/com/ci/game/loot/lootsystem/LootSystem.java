@@ -37,6 +37,16 @@ public class LootSystem
 	}
 	
 	public static void initItems() 
+                
+                // ITEM PARAMETERS
+                // BufferedImage img, 
+                // int lootClass, 
+                // String itemName, 
+                // int defense, 
+                // int durability, 
+                // int qLvl, 
+                // int odds, 
+                // char rarity
 	{
 		shortSword = new Item(Assets.shortSword, 0, "Short Sword", 1.0f, "1H-S", 15, 1, 2, 'c');
 		leatherHelmet = new Item(Assets.leatherHelmet, 0, "Leather Helmet", 15, 15, 1, 4, 'c');
@@ -191,7 +201,7 @@ public class LootSystem
 	{
 		Random r = new Random();
 		int rValue = r.nextInt(5);
-		int totalGold = ((rValue + enemyLevel)/(enemyLevel*2));
+		int totalGold = (((rValue + enemyLevel)/(enemyLevel*2))+1);
 		return totalGold;
 	}
 

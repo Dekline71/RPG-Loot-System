@@ -48,6 +48,7 @@ public class Player extends Entity
 	private String tribe;
 	
 	private boolean isLootDropped = false;
+        private boolean isFirstClick = false;
 
 	
 	public Player(int x, int y) 
@@ -95,6 +96,7 @@ public class Player extends Entity
 	public void checkForSlainEnemy() 
 	{
 		boolean lootDrop, goldDrop;
+                isFirstClick = true;
 		LootSystem.tempLoot.clear();
 
 		int mLvl;
@@ -131,6 +133,7 @@ public class Player extends Entity
 		
 		if(lootDrop) // if there is a drop
 		{
+                        setLootDropped(true);
 			LootSystem.dropLoot(mLvl);
 			System.out.println("Loot Drop!!");
 		}
@@ -138,7 +141,12 @@ public class Player extends Entity
 		{
 			System.out.println("No Loot Drop! :(");
 		}
-			
+		
+                if(!goldDrop && !lootDrop)
+                {
+                        setLootDropped(false);
+                        level.getGame().getAudio().nothing.play();
+                }
 	}
 
 	private void clear()
@@ -414,4 +422,12 @@ public class Player extends Entity
 	public void setLootDropped(boolean isLootDropped) {
 		this.isLootDropped = isLootDropped;
 	}
+        
+        public boolean isFirstClick(){
+                return isFirstClick;
+        }
+        
+        public void setFirstClick(boolean firstClick){
+                this.isFirstClick = isFirstClick;
+        }
 }

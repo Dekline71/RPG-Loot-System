@@ -354,7 +354,13 @@ public class Level
 	
 	private void drawLootPanel(Graphics g) 
 	{
-		if(this.getPlayer().isLootDropped() == true)
+                if(!this.getPlayer().isLootDropped() && this.getPlayer().isFirstClick() == true)
+                {
+                    g.drawImage(Assets.resPanel, 10, 10, null);
+                    g.drawImage(Assets.nothing, 15, 15, null);
+                    g.drawString("NOTHING!", 78, 58);
+                }
+                else if(this.getPlayer().isLootDropped() == true && this.getPlayer().isFirstClick() == true)
 		{
 			g.drawImage(Assets.resPanel, 10, 10, null);
 			
