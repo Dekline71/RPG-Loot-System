@@ -134,6 +134,31 @@ public class Assets
 	public static BufferedImage staff;
 	public static BufferedImage lootChest;
         public static BufferedImage nothing;
+        
+        public static BufferedImage bitOfCloth;
+        public static BufferedImage bone;
+	public static BufferedImage dragonEgg;
+	public static BufferedImage eagleFeather;
+	public static BufferedImage pocketSand;
+	public static BufferedImage waterFlask;
+	public static BufferedImage axe;
+	public static BufferedImage breastplate;
+	public static BufferedImage chainmailShirt;
+	public static BufferedImage chainmailGloves;
+	public static BufferedImage crossbow;
+	public static BufferedImage helmet;
+	public static BufferedImage leatherLeggings;
+	public static BufferedImage plateArmorSuit;
+	public static BufferedImage plateVambrace;
+	public static BufferedImage ringmailShirt;
+	public static BufferedImage shield;
+	public static BufferedImage greataxe;
+	public static BufferedImage greatclub;
+	public static BufferedImage greatsword;
+	public static BufferedImage longsword;
+	public static BufferedImage scimitar;
+        public static BufferedImage warhammer;
+        public static BufferedImage mace;
 
 	public static Image getFish() 
 	{

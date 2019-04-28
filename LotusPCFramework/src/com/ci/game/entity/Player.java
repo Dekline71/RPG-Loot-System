@@ -1,6 +1,7 @@
 package com.ci.game.entity;
 
 import java.awt.Toolkit;
+import java.util.Random;
 
 import com.ci.game.entity.projectile.Projectile;
 import com.ci.game.entity.projectile.WizardProjectile;
@@ -98,10 +99,11 @@ public class Player extends Entity
 		boolean lootDrop, goldDrop;
                 isFirstClick = true;
 		LootSystem.tempLoot.clear();
-
 		int mLvl;
+                Random r = new Random();
 		//mLvl = generateSlainMonster(); //** TBD **
-		mLvl = 1; // Testing level 1 enemy/monster
+                mLvl = r.nextInt((16-1)+1); //max monster level of 15 (minimum 1), randomly rolled
+		//mLvl = 15; // Testing level enemy/monster
 		
 		System.out.println("Loot Box Clicked");
 		

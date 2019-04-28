@@ -495,6 +495,67 @@ public class Level
 
 					
 				}
+                                
+                                else if(LootSystem.getTempLoot().get(i).getItemType() == Item.ItemType.Monster)
+				{
+					if(i == 0)
+					{
+						g.drawImage(LootSystem.getTempLoot().get(i).getImage(), 15, 15, null);
+
+						// Display Item name in color in relation to rarity 
+						switch(LootSystem.getTempLoot().get(i).getRarity())
+						{
+						case 'c':
+							g.setColor(Color.WHITE);
+							g.drawString(LootSystem.getTempLoot().get(i).getName(), 78, 58);
+							break;
+						case 'u':
+							g.setColor(Color.GREEN);
+							g.drawString(LootSystem.getTempLoot().get(i).getName(), 78, 58);
+							break;
+						case 'r':
+							g.setColor(Color.BLUE);
+							g.drawString(LootSystem.getTempLoot().get(i).getName(), 78, 58);
+							break;
+						case 'l':
+							g.setColor(Color.ORANGE);
+							g.drawString(LootSystem.getTempLoot().get(i).getName(), 78, 58);
+							break;
+						default:
+							break;							
+						}
+					}
+					else
+					{
+						g.drawImage(LootSystem.getTempLoot().get(i).getImage(), 15, 30 * ( ii), null);
+
+						// Display Item name in color in relation to rarity 
+						switch(LootSystem.getTempLoot().get(i).getRarity())
+						{
+						case 'c':
+							g.setColor(Color.WHITE);
+							g.drawString(LootSystem.getTempLoot().get(i).getName(), 78, 36 * (ii));
+							break;
+						case 'u':
+							g.setColor(Color.GREEN);
+							g.drawString(LootSystem.getTempLoot().get(i).getName(), 78, 36 * (ii));
+							break;
+						case 'r':
+							g.setColor(Color.BLUE);
+							g.drawString(LootSystem.getTempLoot().get(i).getName(), 78, 36 * (ii));
+							break;
+						case 'l':
+							g.setColor(Color.ORANGE);
+							g.drawString(LootSystem.getTempLoot().get(i).getName(), 78, 36 * (ii));
+							break;
+						default:
+							break;							
+						}
+					}
+					
+
+					
+				}
 				ii++;
 			}
 		}	
