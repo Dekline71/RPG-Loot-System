@@ -1,8 +1,12 @@
 
 package com.ci.game.loot.lootsystem;
 import static org.junit.Assert.*;
+
+import java.util.Arrays;
 import java.util.LinkedList;
 import org.junit.Test;
+
+import com.ci.game.graphics.Assets;
 import com.ci.game.loot.Item;
 
 public class LootSystemTest {
@@ -33,14 +37,46 @@ public class LootSystemTest {
 		actual = LootSystem.calcGold(enemyLevel);
 		assertEquals(actual, expectedGoldMax);		
 	}
-
+	
 	@Test
-	public void getTempLootTest(){
+	public void dropLootTest(){
 		LootSystem.initItems();
 		
-		LinkedList<Item> actual = LootSystem.getTempLoot();
-		LinkedList<Item> expected = new LinkedList<Item>();
+		int monsterLevel = 1;
 		
-		assertEquals(expected, actual);
+		LootSystem.dropLoot(monsterLevel);
+				
+		Item actual = LootSystem.tempLoot.getFirst();
+		LinkedList<Item> possibleItems = new LinkedList<Item>(Arrays.asList(LootSystem.lootClass[0]));
+		
+		assertTrue(possibleItems.contains(actual));
+		
+		monsterLevel = 4;
+		LootSystem.dropLoot(monsterLevel);
+		actual = LootSystem.tempLoot.get(1);
+		possibleItems = new LinkedList<Item>(Arrays.asList(LootSystem.lootClass[1]));
+
+		assertTrue(possibleItems.contains(actual));
+
+		monsterLevel = 8;
+		LootSystem.dropLoot(monsterLevel);
+		actual = LootSystem.tempLoot.get(2);
+		possibleItems = new LinkedList<Item>(Arrays.asList(LootSystem.lootClass[2]));
+
+		assertTrue(possibleItems.contains(actual));
+
+		monsterLevel = 12;
+		LootSystem.dropLoot(monsterLevel);
+		actual = LootSystem.tempLoot.get(3);
+		possibleItems = new LinkedList<Item>(Arrays.asList(LootSystem.lootClass[3]));
+
+		assertTrue(possibleItems.contains(actual));
+
+		monsterLevel = 15;
+		LootSystem.dropLoot(monsterLevel);
+		actual = LootSystem.tempLoot.get(4);
+		possibleItems = new LinkedList<Item>(Arrays.asList(LootSystem.lootClass[4]));
+
+		assertTrue(possibleItems.contains(actual));
 	}
 }
