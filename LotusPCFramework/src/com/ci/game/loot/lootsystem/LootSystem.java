@@ -11,13 +11,13 @@ import com.ci.game.loot.Item;
 public class LootSystem 
 {
 	//LootClass lc;
-	public static Item[] lootclass1 = new Item[11];
-	public static Item[] lootclass2 = new Item[10];
-        public static Item[] lootclass3 = new Item[10];
-        public static Item[] lootclass4 = new Item[12];
-        public static Item[] monsterLootClass = new Item[6];
+	public static Item[] goblinloot = new Item[11];
+	public static Item[] banditloot = new Item[10];
+        public static Item[] ogreloot = new Item[10];
+        public static Item[] dwarfloot = new Item[12];
+        public static Item[] griffinloot = new Item[6];
         // lootClass is a 2D array for generating loot based on Monster Level (mLvl), which determines which lootClass is used.
-        public static Item[][] lootClass = new Item[][]{lootclass1, lootclass2, lootclass3, lootclass4, monsterLootClass};
+        public static Item[][] lootClass = new Item[][]{goblinloot, banditloot, ogreloot, dwarfloot, griffinloot};
         
 	public static LinkedList<Item> tempLoot = new LinkedList<Item>();
 
@@ -151,63 +151,63 @@ public class LootSystem
 		knightsShield = new Item(Assets.shield, 3, "Knight's Shield", 58, 58, 3, 22, 'u');
                 
                 // mLvl 1-3
-		lootclass1[0] = shortSword;
-		lootclass1[1] = leatherHelmet;
-		lootclass1[2] = birchStaff;
-		lootclass1[3] = wolfSkinArmor;
-		lootclass1[4] = dagger;
-		lootclass1[5] = greaves;
-		lootclass1[6] = hardLeatherBelt;
-		lootclass1[7] = soldiersShortSword;
-		lootclass1[8] = helmOfOdin;
-		lootclass1[9] = baneStaff;
-		lootclass1[10] = howlfangsFur;
+		goblinloot[0] = shortSword;
+		goblinloot[1] = leatherHelmet;
+		goblinloot[2] = birchStaff;
+		goblinloot[3] = wolfSkinArmor;
+		goblinloot[4] = dagger;
+		goblinloot[5] = greaves;
+		goblinloot[6] = hardLeatherBelt;
+		goblinloot[7] = soldiersShortSword;
+		goblinloot[8] = helmOfOdin;
+		goblinloot[9] = baneStaff;
+		goblinloot[10] = howlfangsFur;
                 
                 // mLvl 4-6
-                lootclass2[0] = greatsword;
-		lootclass2[1] = axe;
-		lootclass2[2] = crackedLeatherLeggings;
-		lootclass2[3] = chainmailGloves;
-		lootclass2[4] = mace;
-		lootclass2[5] = chainmailShirt;
-		lootclass2[6] = vanquishersGreatsword;
-		lootclass2[7] = axeOfFechmar;
-		lootclass2[8] = gauntletsOfGlory;
-		lootclass2[9] = neanderthalMace;
+                banditloot[0] = greatsword;
+		banditloot[1] = axe;
+		banditloot[2] = crackedLeatherLeggings;
+		banditloot[3] = chainmailGloves;
+		banditloot[4] = mace;
+		banditloot[5] = chainmailShirt;
+		banditloot[6] = vanquishersGreatsword;
+		banditloot[7] = axeOfFechmar;
+		banditloot[8] = gauntletsOfGlory;
+		banditloot[9] = neanderthalMace;
                 
                 // mLvl 7-9
-                lootclass3[0] = scimitar;
-		lootclass3[1] = ringmailShirt;
-		lootclass3[2] = longsword;
-		lootclass3[3] = breastplate;
-		lootclass3[4] = greatclub;
-		lootclass3[5] = plateVambrace;
-		lootclass3[6] = skycutter;
-		lootclass3[7] = shardOfHate;
-		lootclass3[8] = templarsArmor;
-		lootclass3[9] = skornsClub;
+                ogreloot[0] = scimitar;
+		ogreloot[1] = ringmailShirt;
+		ogreloot[2] = longsword;
+		ogreloot[3] = breastplate;
+		ogreloot[4] = greatclub;
+		ogreloot[5] = plateVambrace;
+		ogreloot[6] = skycutter;
+		ogreloot[7] = shardOfHate;
+		ogreloot[8] = templarsArmor;
+		ogreloot[9] = skornsClub;
                 
                 // mLvl 10-12
-                lootclass4[0] = warhammer;
-		lootclass4[1] = greataxe;
-		lootclass4[2] = plateArmorSuit;
-		lootclass4[3] = helmet;
-		lootclass4[4] = crossbow;
-		lootclass4[5] = shield;
-		lootclass4[6] = thorsHammer;
-		lootclass4[7] = axeOfFendor;
-		lootclass4[8] = sacredShroud;
-		lootclass4[9] = casqueOfCarcasonne;
-		lootclass4[10] = goldenCrossbow;
-                lootclass4[11] = knightsShield;
+                dwarfloot[0] = warhammer;
+		dwarfloot[1] = greataxe;
+		dwarfloot[2] = plateArmorSuit;
+		dwarfloot[3] = helmet;
+		dwarfloot[4] = crossbow;
+		dwarfloot[5] = shield;
+		dwarfloot[6] = thorsHammer;
+		dwarfloot[7] = axeOfFendor;
+		dwarfloot[8] = sacredShroud;
+		dwarfloot[9] = casqueOfCarcasonne;
+		dwarfloot[10] = goldenCrossbow;
+                dwarfloot[11] = knightsShield;
                 
                 // mLvl 13-15 (for now...)
-                monsterLootClass[0] = bitOfCloth;
-                monsterLootClass[1] = bone;
-                monsterLootClass[2] = dragonEgg;
-                monsterLootClass[3] = eagleFeather;
-                monsterLootClass[4] = pocketSand;
-                monsterLootClass[5] = waterFlask;
+                griffinloot[0] = bitOfCloth;
+                griffinloot[1] = bone;
+                griffinloot[2] = dragonEgg;
+                griffinloot[3] = eagleFeather;
+                griffinloot[4] = pocketSand;
+                griffinloot[5] = waterFlask;
 	}
 
 	/**********************************
@@ -243,31 +243,31 @@ public class LootSystem
 	 * <p>
 	 * int enemyLevel: level of enemy
 	 ******************************************/
-	public static void dropLoot(int enemyLevel) 
+	public static void dropLoot(String monster) 
 	{
-                int mLvl = enemyLevel;
+                //int mLvl = enemyLevel;
                 int m = 0;
 		// //Pick LootClass from list based on monster level
 		//extractLC(enemyLevel);
-		if(mLvl <= 3)
+		if(monster=="goblin")
                     {
                         m=0;
                     }
-                    else if(mLvl > 3 && mLvl <=6)
+                    else if(monster=="bandit")
                     {
                         m=1;
                     }
-                    else if(mLvl > 6 && mLvl <=9)
+                    else if(monster=="ogre")
                     {
                         m=2;
                     }
-                    else if(mLvl > 9 && mLvl <=12)
+                    else if(monster=="dwarf")
                     {
-                       m=3;
+                        m=3;
                     }
-                    else if (mLvl > 12 && mLvl <=15)
+                    else if (monster=="griffin")
                     {
-                       m=4;
+                        m=4;
                     }
                 
 		Random r = new Random();

@@ -100,8 +100,14 @@ public class Player extends Entity
                 isFirstClick = true;
 		LootSystem.tempLoot.clear();
 		int mLvl;
-                Random r = new Random();
-		//mLvl = generateSlainMonster(); //** TBD **
+		
+		//generate random monster type from Monster class
+		Random num = new Random();	
+        Monster monster = new Monster(num.nextInt(4));
+		String monsterType = monster.getSlainMonster();
+		
+		//generate the monster's level
+        Random r = new Random();
                 mLvl = r.nextInt((16-1)+1); //max monster level of 15 (minimum 1), randomly rolled
 		//mLvl = 15; // Testing level enemy/monster
 		
@@ -136,7 +142,7 @@ public class Player extends Entity
 		if(lootDrop) // if there is a drop
 		{
                         setLootDropped(true);
-			LootSystem.dropLoot(mLvl);
+			LootSystem.dropLoot(monsterType);
 			System.out.println("Loot Drop!!");
 		}
 		else
