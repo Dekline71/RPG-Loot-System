@@ -4,6 +4,8 @@ import static org.junit.Assert.*;
 
 import java.util.Arrays;
 import java.util.LinkedList;
+
+import org.junit.Assert;
 import org.junit.Test;
 
 import com.ci.game.graphics.Assets;
@@ -12,7 +14,7 @@ import com.ci.game.loot.Item;
 public class LootSystemTest {
 
 	@Test
-	public void calcGoldTest() {
+	public void calcGoldTest_Success() {
 		
 		LootSystem.initItems();
 		
@@ -39,41 +41,41 @@ public class LootSystemTest {
 	}
 	
 	@Test
-	public void dropLootTest(){
+	public void dropLootTest_Success(){
 		LootSystem.initItems();
 		
-		int monsterLevel = 1;
+		String monster = "goblin";
 		
-		LootSystem.dropLoot(monsterLevel);
+		LootSystem.dropLoot(monster);
 				
 		Item actual = LootSystem.tempLoot.getFirst();
 		LinkedList<Item> possibleItems = new LinkedList<Item>(Arrays.asList(LootSystem.lootClass[0]));
 		
 		assertTrue(possibleItems.contains(actual));
 		
-		monsterLevel = 4;
-		LootSystem.dropLoot(monsterLevel);
+		monster = "bandit";
+		LootSystem.dropLoot(monster);
 		actual = LootSystem.tempLoot.get(1);
 		possibleItems = new LinkedList<Item>(Arrays.asList(LootSystem.lootClass[1]));
 
 		assertTrue(possibleItems.contains(actual));
 
-		monsterLevel = 8;
-		LootSystem.dropLoot(monsterLevel);
+		monster = "ogre";
+		LootSystem.dropLoot(monster);
 		actual = LootSystem.tempLoot.get(2);
 		possibleItems = new LinkedList<Item>(Arrays.asList(LootSystem.lootClass[2]));
 
 		assertTrue(possibleItems.contains(actual));
 
-		monsterLevel = 12;
-		LootSystem.dropLoot(monsterLevel);
+		monster = "dwarf";
+		LootSystem.dropLoot(monster);
 		actual = LootSystem.tempLoot.get(3);
 		possibleItems = new LinkedList<Item>(Arrays.asList(LootSystem.lootClass[3]));
 
 		assertTrue(possibleItems.contains(actual));
 
-		monsterLevel = 15;
-		LootSystem.dropLoot(monsterLevel);
+		monster = "griffin";
+		LootSystem.dropLoot(monster);
 		actual = LootSystem.tempLoot.get(4);
 		possibleItems = new LinkedList<Item>(Arrays.asList(LootSystem.lootClass[4]));
 
