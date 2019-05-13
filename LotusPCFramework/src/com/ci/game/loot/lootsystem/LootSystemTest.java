@@ -1,3 +1,8 @@
+//This class is a test class, which uses the JUnit test library.
+//Unless the package is installed, the class will cause error messages, which is why it is commented out.
+//If the test class is desired to be run, uncomment the code below.
+/*
+
 
 package com.ci.game.loot.lootsystem;
 import static org.junit.Assert.*;
@@ -82,3 +87,4 @@ public class LootSystemTest {
 		assertTrue(possibleItems.contains(actual));
 	}
 }
+*/
